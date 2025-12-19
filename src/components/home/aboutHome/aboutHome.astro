@@ -1,0 +1,35 @@
+---
+import FotoJorge from "../../../assets/img/FotoJorge.png";
+import AboutCard from "./aboutCard.astro";
+---
+
+<section class="relative flex items-center justify-center px-4 pt-16">
+  <div
+    class="absolute inset-0 -z-10 mx-auto max-w-6xl blur-3xl"
+    aria-hidden="true"
+  >
+    <div class="h-[450px] w-full rounded-full bg-[#7836cf]/5"></div>
+  </div>
+  <div class="carousel rounded-box">
+    <div class="carousel-item w-full">
+      <AboutCard
+        photo={FotoJorge}
+        name="Jorge Sánchez Pla"
+        description={`Mi nombre es Jorge, soy Desarrollador de Software y actualmente me
+desempeño como Full Stack Developer, con un enfoque en el desarrollo web
+y el backend. Trabajo con tecnologías como React, Node.js, Astro,
+JavaScript, Wordpress, entre otras.`}
+      />
+    </div>
+    <div class="carousel-item w-full">
+      <AboutCard
+        photo={FotoJorge}
+        name="Jorge Sánchez Pla"
+        description={`Mi nombre es Jorge, soy Desarrollador de Software y actualmente me
+desempeño como Full Stack Developer, con un enfoque en el desarrollo web
+y el backend. Trabajo con tecnologías como React, Node.js, Astro,
+JavaScript, Wordpress, entre otras.`}
+      />
+    </div>
+  </div>
+</section>
