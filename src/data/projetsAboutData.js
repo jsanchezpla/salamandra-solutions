@@ -1,7 +1,6 @@
-import RetorikaCRM from "../assets/img-projects/RetorikaCRM.png";
-import AsesoriaRetorika from "../assets/img-projects/AsesoriaRetorika.png";
-import TalentiaApp from "../assets/img-projects/TalentiaApp.png";
-import TalentiaCRM from "../assets/img-projects/TalentiaCRM.png";
+import AsesoriaRetorika from "../assets/img-projects/retorika.png";
+import TalentiaApp from "../assets/img-projects/futurosTalentos.png";
+import TalentiaCRM from "../assets/img-projects/talentia.png";
 
 export const proyectos = [
   {
@@ -30,7 +29,7 @@ export const proyectos = [
   },
   {
     titulo: "CRM para Retorika",
-    imagen: RetorikaCRM.src,
+    imagen: AsesoriaRetorika.src,
     tecnologias: ["Express", "Node.js", "PostgreeSQL", "React"],
     demo: "https://back-express-todo.onrender.com",
     codigo: "https://github.com/Lautaro-R-collins/Back-express-todo.git",

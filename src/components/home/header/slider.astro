@@ -10,11 +10,11 @@ const technologies = [
   "postgreeSQL",
   "reactNative",
   "wordpress",
-  "elementor"
+  "elementor",
 ];
 ---
 
-<div class="relative overflow-x-hidden px-8 py-8">
+<div class="relative overflow-x-hidden px-8 -mt-25 pb-8">
   <div class="animate-scroll hover:animate-paused flex w-max gap-12 md:gap-20">
     {
       technologies.concat(technologies, technologies).map((tech) => (
@@ -46,12 +46,12 @@ const technologies = [
     }
   }
   .animate-scroll {
-    animation: scroll 60s linear infinite;
+    animation: scroll 30s linear infinite;
   }
 
   @media (min-width: 768px) {
     .animate-scroll {
-      animation-duration: 80s;
+      animation-duration: 30s;
     }
   }
 </style>

@@ -1,6 +1,5 @@
 ---
 import { FiMenu, FiX } from "react-icons/fi";
-import NotificationBell from "./notificationBell.jsx";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
 
 const links = [
@@ -45,8 +44,6 @@ const links = [
         }
 
         <li class="flex items-center gap-3">
-          <NotificationBell client:visible />
-
           <a
             href="https://www.linkedin.com/in/lautaro-rodr%C3%ADguez-collins-40505624a/"
             target="_blank"
@@ -59,7 +56,7 @@ const links = [
           </a>
 
           <a
-            href="https://github.com/Lautaro-R-collins"
+            href="https://github.com/jsanchezpla"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -71,7 +68,6 @@ const links = [
 
       <!-- Mobile right-side icons -->
       <div class="flex md:hidden items-center gap-4 z-50">
-        <NotificationBell client:visible />
         <label for="menu-toggle" class="cursor-pointer">
           <FiMenu className="h-7 w-7 text-white peer-checked:hidden" />
           <FiX className="h-7 w-7 text-white hidden peer-checked:block" />
@@ -118,10 +114,10 @@ const links = [
     function markActiveLinks() {
       const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
       const desktopLinks = Array.from(
-        document.querySelectorAll("#navbar-links .nav-link")
+        document.querySelectorAll("#navbar-links .nav-link"),
       );
       const mobileLinks = Array.from(
-        document.querySelectorAll("#navbar-links-mobile .nav-link-mobile")
+        document.querySelectorAll("#navbar-links-mobile .nav-link-mobile"),
       );
 
       const allLinks = [...desktopLinks, ...mobileLinks];

@@ -13,16 +13,24 @@ const { titulo, imagen, tecnologias, demo, codigo } = Astro.props;
 ---
 
 <div
-  class="group flex w-full max-w-md mx-auto flex-col overflow-hidden rounded-xl bg-gray-900 border border-none transition-all hover:scale-[1.015] drop-shadow-[4px_4px_0_#7836cf]"
+  class="group flex w-100 max-w-md mx-auto flex-col overflow-hidden rounded-xl bg-gray-900 border border-none transition-all hover:scale-[1.015] drop-shadow-[4px_4px_0_#7836cf]"
 >
-  <img
-    src={imagen}
-    alt={`Proyecto: ${titulo}`}
-    class="h-56 p-3 w-full object-cover rounded-2xl"
-  />
+  <div
+    class="flex items-center justify-center bg-white h-114 w-full rounded-2xl"
+  >
+    <img
+      src={imagen}
+      alt={`Proyecto: ${titulo}`}
+      class="bg-white h-84 object-contain rounded-2xl"
+    />
+  </div>
 
   <div class="flex flex-col grow p-3">
-    <h3 class="text-lg font-semibold mb-2 text-white drop-shadow-[1px_1px_0_#7836cf]">{titulo}</h3>
+    <h3
+      class="text-lg font-semibold mb-2 text-white drop-shadow-[1px_1px_0_#7836cf]"
+    >
+      {titulo}
+    </h3>
 
     <div class="flex flex-wrap gap-2 mb-4">
       {
