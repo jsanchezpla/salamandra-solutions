@@ -2,15 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import logoSalamandra from "../assets/img/logoSalamandra.png";
 import CopyMail from "../components/links/copyMail.jsx";
+import ContactForm from "../components/commons/contact/contactForm.astro";
 
 const links = [
   {
-    href: "https://www.linkedin.com/in/lautaro-rodr%C3%ADguez-collins-40505624a/",
+    href: "https://es.linkedin.com/company/salamandraproducciones",
     label: "LinkedIn",
   },
-  { href: "https://github.com/Lautaro-R-collins", label: "GitHub" },
-  { href: "https://x.com/lautarodevelops/", label: "Twitter" },
-  { href: "mailto:lautarodevelops@gmail.com", label: "Email" },
+  { href: "https://github.com/jsanchezpla", label: "GitHub" },
+  { href: "mailto:info@salamandrasolutions.com", label: "Email" },
 ];
 ---
 
@@ -18,13 +18,13 @@ const links = [
   <section
     class="bg-gray-900 flex min-h-screen flex-col items-center justify-center px-6"
   >
-    <div class="mb-2 mt-11">
+    <div class="mb-2 mt-15">
       <div class="mb-2 mt-11">
         <div class="relative flex items-center justify-center">
           <!-- Foto con borde -->
           <img
             src={logoSalamandra.src}
-            alt="Foto de Lautaro"
+            alt="Logo de Salamandra"
             class="border-primary h-32 w-32 rounded-full shadow-lg"
           />
 
@@ -50,7 +50,7 @@ const links = [
     <CopyMail client:visible />
 
     <!-- Lista de Links -->
-    <div class="w-full max-w-xl space-y-4">
+    <div class="w-full max-w-xl space-y-4 mb-7">
       {
         links.map((link) => (
           <a
@@ -64,6 +64,7 @@ const links = [
         ))
       }
     </div>
+    <ContactForm />
   </section>
 </Layout>
 

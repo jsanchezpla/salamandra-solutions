@@ -9,11 +9,19 @@ export interface Props {
   demo: string;
   codigo: string;
   categoria?: string;
-  index: number; 
+  index: number;
 }
 
-const { titulo, descripcion, imagen, tecnologias, demo, codigo, categoria, index } =
-  Astro.props;
+const {
+  titulo,
+  descripcion,
+  imagen,
+  tecnologias,
+  demo,
+  codigo,
+  categoria,
+  index,
+} = Astro.props;
 ---
 
 <div
@@ -24,10 +32,14 @@ const { titulo, descripcion, imagen, tecnologias, demo, codigo, categoria, index
   <img
     src={imagen}
     alt={`Imagen del proyecto ${titulo}`}
-    class="h-50 w-full rounded-2xl object-cover p-3"
+    class="bg-white h-84 object-contain rounded-2xl"
   />
   <div class="flex grow flex-col px-3 pb-3">
-    <h3 class="text-xl font-semibold text-white drop-shadow-[1px_1px_0_#7836cf]">{titulo}</h3>
+    <h3
+      class="text-xl font-semibold text-white drop-shadow-[1px_1px_0_#7836cf]"
+    >
+      {titulo}
+    </h3>
 
     <div class="my-1.5 flex flex-wrap gap-2">
       {

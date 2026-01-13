@@ -1,0 +1,146 @@
+---
+const {
+    title = "Contacto",
+    subtitle = "Cuéntanos en qué podemos ayudarte y te respondoremos lo antes posible.",
+} = Astro.props;
+
+const success = Astro.url.searchParams.get("sent") === "1";
+const error = Astro.url.searchParams.get("error") === "1";
+---
+
+<section class="w-full py-10">
+    <div class="mx-auto max-w-2xl px-4">
+        <div
+            class="rounded-2xl border border-white/10 bg-gray-950/60 p-6 shadow-lg backdrop-blur md:p-8"
+        >
+            <header class="mb-6">
+                <h2
+                    class="text-2xl font-bold tracking-tight text-white md:text-3xl"
+                >
+                    {title}
+                </h2>
+                <p class="mt-2 text-sm text-gray-300 md:text-base">
+                    {subtitle}
+                </p>
+            </header>
+
+            {
+                success && (
+                    <div class="mb-5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200">
+                        Mensaje enviado. ¡Gracias! Te responderemos pronto.
+                    </div>
+                )
+            }
+
+            {
+                error && (
+                    <div class="mb-5 rounded-xl border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-200">
+                        Hubo un error al enviar el mensaje. Prueba de nuevo.
+                    </div>
+                )
+            }
+
+            <form action="/api/contact" method="POST" class="space-y-4">
+                <!-- Honeypot anti-spam (no lo ve el usuario) -->
+                <div class="hidden">
+                    <label>
+                        No rellenar
+                        <input
+                            name="company"
+                            tabindex="-1"
+                            autocomplete="off"
+                        />
+                    </label>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <div>
+                        <label
+                            for="name"
+                            class="mb-1 block text-sm font-medium text-gray-200"
+                        >
+                            Nombre
+                        </label>
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            required
+                            autocomplete="name"
+                            placeholder="Tu nombre"
+                            class="w-full rounded-xl border border-white/10 bg-gray-900/60 px-4 py-3 text-sm text-white placeholder:text-gray-500 outline-none ring-0 transition focus:border-[#69c7c7]/60 focus:outline-none focus:ring-2 focus:ring-[#69c7c7]/30"
+                        />
+                    </div>
+
+                    <div>
+                        <label
+                            for="email"
+                            class="mb-1 block text-sm font-medium text-gray-200"
+                        >
+                            Email
+                        </label>
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            required
+                            autocomplete="email"
+                            placeholder="tucorreo@ejemplo.com"
+                            class="w-full rounded-xl border border-white/10 bg-gray-900/60 px-4 py-3 text-sm text-white placeholder:text-gray-500 outline-none transition focus:border-[#69c7c7]/60 focus:ring-2 focus:ring-[#69c7c7]/30"
+                        />
+                    </div>
+                </div>
+
+                <div>
+                    <label
+                        for="message"
+                        class="mb-1 block text-sm font-medium text-gray-200"
+                    >
+                        Mensaje
+                    </label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        required
+                        rows="6"
+                        placeholder="Cuéntanos qué necesitas..."
+                        class="w-full resize-none rounded-xl border border-white/10 bg-gray-900/60 px-4 py-3 text-sm text-white placeholder:text-gray-500 outline-none transition focus:border-[#69c7c7]/60 focus:ring-2 focus:ring-[#69c7c7]/30"
+                    ></textarea>
+                </div>
+
+                <div
+                    class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+                >
+                    <p class="text-xs text-gray-400">
+                        Al enviar aceptas que te contactemos para responder tu
+                        solicitud.
+                    </p>
+
+                    <button
+                        type="submit"
+                        class="inline-flex items-center justify-center rounded-xl bg-[#69c7c7] px-5 py-3 text-sm font-semibold text-gray-950 shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#69c7c7]/40 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        Enviar mensaje
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<script>
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const btn = document.getElementById("submit-btn") as HTMLButtonElement;
+    const btnText = document.getElementById("btn-text");
+
+    if (form && btn && btnText) {
+        form.addEventListener("submit", () => {
+            // No hacemos e.preventDefault() porque QUEREMOS que el formulario se envíe al servidor.
+            // Solo modificamos la UI justo antes de que eso pase.
+
+            btn.disabled = true; // Bloquea clics extra
+            btnText.innerText = "Enviando..."; // Feedback visual
+            btn.classList.add("opacity-70", "cursor-wait"); // Estilos de espera
+        });
+    }
+</script>

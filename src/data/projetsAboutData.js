@@ -4,7 +4,7 @@ import TalentiaCRM from "../assets/img-projects/talentia.png";
 
 export const proyectos = [
   {
-    titulo: "Aplicación para Futuros Talentos",
+    titulo: "Aplicación web para Futuros Talentos",
     descripcion: "Se trata de una aplicación web donde los padres pueden apuntar a sus hijos a las extraescolares del colegio y ver información sobre ello.",
     imagen: TalentiaApp.src,
     tecnologias: ["React Native", "Express", "PostgreeSQL", "Node"],
@@ -12,7 +12,14 @@ export const proyectos = [
     codigo: "https://github.com/Lautaro-R-collins/ProyectoFinal-Rodriguez.git",
   },
   {
-    titulo: "CRM para Talentia",
+    titulo: "Página web de Fututros Talentos",
+    imagen: TalentiaApp.src,
+    tecnologias: ["Wordpress", "Elementor"],
+    demo: "https://back-express-todo.onrender.com",
+    codigo: "https://github.com/Lautaro-R-collins/Back-express-todo.git",
+  },
+  {
+    titulo: "ERP para Talentia",
     descripcion: "Es una aplicación web desde la que pueden gestionar la base de datos de su otra aplicación desde con una interfaz y herramientas amigables",
     imagen:
       TalentiaCRM.src,
@@ -28,7 +35,7 @@ export const proyectos = [
     codigo: "https://github.com/Lautaro-R-collins/Front-react-todo",
   },
   {
-    titulo: "CRM para Retorika",
+    titulo: "ERP para Retorika",
     imagen: AsesoriaRetorika.src,
     tecnologias: ["Express", "Node.js", "PostgreeSQL", "React"],
     demo: "https://back-express-todo.onrender.com",
