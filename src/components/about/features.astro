@@ -1,32 +1,59 @@
 ---
 import ServiceCard from "./ServiceCard.astro";
-import { FaLaptopCode, FaBolt, FaRocket } from "react-icons/fa"; 
+import {
+	FaLaptopCode,
+	FaBolt,
+	FaRocket,
+	FaMobileAlt,
+	FaWordpress,
+	FaDesktop,
+} from "react-icons/fa";
 ---
 
 <section class="site-container mt-14 mx-auto max-w-6xl px-4">
 	<h2
 		class="text-4xl font-bold flex flex-col items-center gap-6 text-center whitespace-nowrap text-white md:flex-row md:items-center md:text-end"
 	>
-		<span class="hidden h-1.5 grow rounded-lg drop-shadow-[2px_2px_0_#0debd8] bg-[#7836cf] md:block"></span>
+		<span
+			class="hidden h-1.5 grow rounded-lg drop-shadow-[2px_2px_0_#0debd8] bg-[#7836cf] md:block"
+		></span>
 		<span class="drop-shadow-[2px_2px_0_#7836cf]">Servicios</span>
 	</h2>
 
 	<div class="mt-10 grid gap-6 md:grid-cols-3">
 		<ServiceCard
 			icon={FaLaptopCode}
-			title="Desarrollo Web Responsivo"
-			description="Construcción de sitios web modernos, adaptados a dispositivos móviles, optimizados y con tecnologías actuales."
+			title="Desarrollo Web"
+			description="Sitios que se adaptan a todo. Diseño fluido y optimización SEO para asegurar que tu web luzca perfecta y cargue al instante en cualquier dispositivo."
 		/>
+
 		<ServiceCard
 			icon={FaBolt}
-			title="Frontend"
-			description="Desarrollo de interfaces modernas, rápidas y accesibles que ofrecen una experiencia de usuario intuitiva y atractiva."
+			title="Frontend UI/UX"
+			description="Interfaces visuales que cautivan. Transformamos diseños en código limpio y reactivo, priorizando la interactividad y una navegación sin fricción."
 		/>
 
 		<ServiceCard
 			icon={FaRocket}
-			title="Backend"
-			description="Rendimiento rápido, mejores prácticas de accesibilidad y optimización de procesos en el servidor."
+			title="Backend & APIs"
+			description="Arquitectura robusta entre bastidores. Lógica de servidor segura y bases de datos escalables para que tu aplicación soporte el crecimiento de tu negocio."
+		/>
+
+		<ServiceCard
+			icon={FaMobileAlt}
+			title="Apps Móviles"
+			description="Llevamos tu idea al bolsillo de tus usuarios. Desarrollo de aplicaciones nativas o híbridas para iOS y Android con rendimiento superior."
+		/>
+		<ServiceCard
+			icon={FaWordpress}
+			title="Desarrollo WordPress"
+			description="Más que una plantilla. Cambio los plugins a medida, dándote control total sobre tu contenido."
+		/>
+
+		<ServiceCard
+			icon={FaDesktop}
+			title="Aplicaciones de Escritorio"
+			description="Software potente para Windows. Herramientas corporativas robustas que funcionan offline y aprovechan al máximo el hardware del equipo."
 		/>
 	</div>
 </section>

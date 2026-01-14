@@ -1,9 +1,6 @@
 import futurosTalentos from "../assets/img-projects/futurosTalentos.png";
 import talentia from "../assets/img-projects/talentia.png";
 import retorika from "../assets/img-projects/retorika.png";
-import mediCare from "../assets/img-projects/medicare.jpg";
-import astroFit from "../assets/img-projects/Astrofit.jpg";
-import Verbenas from "../assets/img-projects/challenge-newyze.png";
 
 export const proyectos = [
   {

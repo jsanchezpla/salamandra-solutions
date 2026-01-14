@@ -1,34 +1,24 @@
 export const jobs = [
   {
-    title: "Frontend Developer - Neowyze",
-    time: ["12/2024 - 05/2025"],
-    description:
-      "Mis tareas en Neowyze consisten en desarrollar webs responsivas basadas en diseños proporcionados en Figma, utilizando Astro, React, Tailwind y otras librerías frontend.",
-    list: [
-      "Para el flujo de trabajo, utilizo Jira como herramienta de gestión y Git/GitHub como sistema de control de versiones.",
-      "Trabajo bajo la metodología ágil Scrum, con sprints de 2 semanas y dos reuniones diarias (dailies) para planificar el proyecto y presentar avances",
-    ],
-  },
-  {
-    title: "Frontend Developer - Vegna",
-    time: ["05/2024 - 02/2024"],
-    description: "Desarrollo y mantenimiento de interfaces de usuario con:",
-    list: ["JavaScript - TypeScript", "React - Next.js", "Tailwind", "Shadcn"],
-  },
-  {
-    title: "Frontend Developer - Igrowker",
-    time: ["07/2022 - 08/2022"],
-    description: "Desarrollo y mantenimiento de interfaces de usuario con",
-    list: ["React - React Router - Context api - CSS - Material UI"],
-  },
-  {
-    title: " Web Developer - NoCountry",
+    title: "Prácticas - Resulto Consultoría",
     time: ["03/2022 - 06/2022"],
     description:
-      "Desarrollo de aplicaciones web responsivas MVP fullstack usando para su desarrollo tecnologías como",
+      "En esta empresa aprendí sobre SAP, su entorno y su lenguaje ABAP. También aprendí sobre la metodología kanban y como funciona el mundo empresarial por dentro.",
     list: [
-      "Frontend : React - React Router - Context api - tailwindcss",
-      "Backend : API REST con Express.js, MongoDB",
+      "ABAP",
+      "Resolver incidencias tanto de programación como del propio sistema SAP, responder correos y excel.",
     ],
+  },
+  {
+    title: "Prácticas - Ayesa",
+    time: ["05/2024 - 02/2024"],
+    description: "En esta empresa aprendía a trabajar bajo la metodología scrum, con dailies diarias y cursos de formación en Java y C#.",
+    list: ["Java", "C#"],
+  },
+  {
+    title: "Full Stack Developer - Salamandra Solutions",
+    time: ["02/2025 - presente"],
+    description: "Mi actual trabajo en el que tanto mi socio Rodrigo como yo damos soluciones informáticas y estamos en contacto con el cliente prácticamente a cualquier hora que lo necesite.",
+    list: ["Aplicaciones web, desarrollo backend, desarrollo frontend y wordpress. Además de apps móviles y aplicaciones de escritorio."],
   },
 ];
