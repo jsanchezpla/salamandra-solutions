@@ -1,5 +1,5 @@
 ---
-import { HiArrowRight } from "react-icons/hi";
+import { HiArrowRight, HiCode, HiExternalLink } from "react-icons/hi"; // Asegúrate de tener estos iconos
 
 export interface Props {
   titulo: string;
@@ -12,54 +12,58 @@ export interface Props {
 const { titulo, imagen, tecnologias, demo, codigo } = Astro.props;
 ---
 
-<div
-  class="group flex w-100 max-w-md mx-auto flex-col overflow-hidden rounded-xl bg-gray-900 border border-none transition-all hover:scale-[1.015] drop-shadow-[4px_4px_0_#7836cf]"
+<article
+  class="group flex h-full flex-col overflow-hidden rounded-xl border border-[#D946EF]/20 bg-[#1E1236]/60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#D946EF]/50 hover:shadow-[0_0_30px_rgba(217,70,239,0.15)]"
 >
   <div
-    class="flex items-center justify-center bg-white h-114 w-full rounded-2xl"
+    class="relative h-116 w-full overflow-hidden border-b border-[#D946EF]/10 bg-white"
   >
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-[#1E1236] to-transparent opacity-60 z-10"
+    >
+    </div>
     <img
       src={imagen}
       alt={`Proyecto: ${titulo}`}
-      class="bg-white h-84 object-contain rounded-2xl"
+      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
     />
   </div>
 
-  <div class="flex flex-col grow p-3">
+  <div class="flex flex-grow flex-col p-6">
     <h3
-      class="text-lg font-semibold mb-2 text-white drop-shadow-[1px_1px_0_#7836cf]"
+      class="mb-3 font-['Outfit'] text-xl font-bold text-white transition-colors group-hover:text-[#D946EF]"
     >
       {titulo}
     </h3>
 
-    <div class="flex flex-wrap gap-2 mb-4">
+    <div class="mb-6 flex flex-wrap gap-2">
       {
         tecnologias.map((tech) => (
-          <span class="rounded-md bg-[#7836cf]/20 text-[#a27ed1] px-2 py-0.5 text-xs font-semibold">
+          <span class="rounded bg-[#D946EF]/10 px-2 py-1 font-['JetBrains_Mono'] text-[10px] font-medium uppercase tracking-wide text-[#D946EF] border border-[#D946EF]/20">
             {tech}
           </span>
         ))
       }
     </div>
 
-    <div class="mt-auto flex justify-between gap-3">
+    <div class="mt-auto flex gap-3 pt-4 border-t border-[#D946EF]/10">
       <a
         href={demo}
         target="_blank"
         rel="noopener noreferrer"
-        class="w-full text-center border border-[#7836cf] text-[#7836cf] py-1.5 rounded-md text-sm font-semibold hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
+        class="flex flex-1 items-center justify-center gap-2 rounded bg-[#D946EF] py-2 font-['JetBrains_Mono'] text-xs font-bold text-white transition-all hover:bg-[#b026c4] hover:shadow-lg hover:shadow-[#D946EF]/25"
       >
-        Demo
+        <HiExternalLink size={16} /> DEMO
       </a>
 
       <a
         href={codigo}
         target="_blank"
         rel="noopener noreferrer"
-        class="w-full text-center border border-[#7836cf] text-[#7836cf] py-1.5 rounded-md text-sm font-semibold hover:bg-[#7836cf] hover:text-gray-900 transition-colors"
+        class="flex flex-1 items-center justify-center gap-2 rounded border border-[#D946EF]/50 bg-transparent py-2 font-['JetBrains_Mono'] text-xs font-bold text-[#D946EF] transition-all hover:border-[#D946EF] hover:bg-[#D946EF]/10 hover:text-white"
       >
-        Código
+        <HiCode size={16} /> CÓDIGO
       </a>
     </div>
   </div>
-</div>
+</article>

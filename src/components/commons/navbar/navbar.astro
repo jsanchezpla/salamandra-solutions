@@ -11,47 +11,43 @@ const links = [
 ---
 
 <nav class="relative">
-  <!-- Input control (peer) -->
   <input id="menu-toggle" type="checkbox" class="peer hidden md:hidden" />
 
-  <!-- Navbar -->
   <nav
-    class="fixed top-0 left-0 w-full z-50 bg-gray-950/20 backdrop-blur-md border-b border-white/10"
+    class="fixed left-0 top-0 z-50 w-full border-b border-[#D946EF]/20 bg-black/80 backdrop-blur-md transition-all duration-300"
   >
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="/" class="flex items-center">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+      <a href="/" class="flex items-center group">
         <h3
-          class="text-[#69c7c7] text-3xl font-bold drop-shadow-[1.5px_1.5px_0_#7836cf]"
+          class="font-['Outfit'] text-2xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-[#D946EF] md:text-3xl"
         >
-          SALAMANDRA SOLUTIONS
+          SALAMANDRA <span class="text-[#D946EF]">SOLUTIONS</span>
         </h3>
       </a>
 
-      <!-- Desktop Links -->
-      <ul id="navbar-links" class="hidden md:flex items-center space-x-8">
+      <ul id="navbar-links" class="hidden items-center space-x-8 md:flex">
         {
           links.map((link) => (
             <li>
               <a
                 href={link.href}
-                class="nav-link font-bold transition-colors duration-300 text-white hover:text-[#7d2dac]"
+                class="font-['JetBrains_Mono'] text-sm font-medium text-gray-300 transition-all duration-300 hover:text-[#D946EF] hover:tracking-wide"
               >
-                {link.name}
+                // {link.name}
               </a>
             </li>
           ))
         }
 
-        <li class="flex items-center gap-3">
+        <li class="flex items-center gap-4 border-l border-[#D946EF]/30 pl-6">
           <a
-            href="https://www.linkedin.com/in/lautaro-rodr%C3%ADguez-collins-40505624a/"
+            href="https://www.linkedin.com/company/salamandraproducciones/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
             <FaLinkedinIn
-              className="h-7 w-7 cursor-pointer hover:text-[#7836cf]"
+              className="h-5 w-5 text-gray-400 transition-colors duration-300 hover:text-[#D946EF] hover:scale-110"
             />
           </a>
 
@@ -61,51 +57,70 @@ const links = [
             rel="noopener noreferrer"
             aria-label="GitHub"
           >
-            <FaGithub className="h-7 w-7 cursor-pointer hover:text-[#7836cf]" />
+            <FaGithub
+              className="h-5 w-5 text-gray-400 transition-colors duration-300 hover:text-[#D946EF] hover:scale-110"
+            />
           </a>
         </li>
       </ul>
 
-      <!-- Mobile right-side icons -->
-      <div class="flex md:hidden items-center gap-4 z-50">
-        <label for="menu-toggle" class="cursor-pointer">
-          <FiMenu className="h-7 w-7 text-white peer-checked:hidden" />
-          <FiX className="h-7 w-7 text-white hidden peer-checked:block" />
+      <div class="z-50 flex items-center gap-4 md:hidden">
+        <label
+          for="menu-toggle"
+          class="cursor-pointer transition-transform active:scale-90"
+        >
+          <FiMenu className="h-8 w-8 text-[#D946EF] peer-checked:hidden" />
+          <FiX className="hidden h-8 w-8 text-[#D946EF] peer-checked:block" />
         </label>
       </div>
     </div>
   </nav>
 
-  <!-- Overlay (mobile only) -->
   <label
     for="menu-toggle"
-    class="fixed inset-0 bg-black/60 hidden peer-checked:block cursor-pointer z-40 md:hidden"
+    class="fixed inset-0 z-40 hidden cursor-pointer bg-black/80 backdrop-blur-sm peer-checked:block md:hidden"
   ></label>
 
-  <!-- Sidebar móvil -->
   <div
-    class="fixed top-0 right-0 h-full w-64 bg-gray-900 shadow-lg transform translate-x-full transition-transform duration-300 peer-checked:translate-x-0 z-50 md:translate-x-full md:hidden"
+    class="fixed right-0 top-0 z-50 h-full w-72 transform border-l border-[#D946EF]/20 bg-black transition-transform duration-300 peer-checked:translate-x-0 md:hidden translate-x-full shadow-[-10px_0_30px_-10px_rgba(212,175,55,0.1)]"
   >
-    <div class="flex justify-end p-4">
+    <div class="flex justify-end p-6">
       <label for="menu-toggle" class="cursor-pointer">
-        <FiX className="h-7 w-7 text-white" />
+        <FiX
+          className="h-8 w-8 text-gray-400 hover:text-[#D946EF] transition-colors"
+        />
       </label>
     </div>
 
-    <ul id="navbar-links-mobile" class="flex flex-col space-y-6 mt-6 ml-6">
-      {
-        links.map((link) => (
-          <li>
-            <a
-              href={link.href}
-              class="nav-link-mobile text-lg font-bold text-white hover:text-[#69c7c7] transition-colors duration-300"
-            >
-              {link.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    <div class="px-8 mt-4">
+      <h4
+        class="font-['Montserrat'] text-xs font-bold text-[#D946EF] uppercase tracking-widest mb-8 border-b border-[#D946EF]/20 pb-4"
+      >
+        Navegación
+      </h4>
+      <ul id="navbar-links-mobile" class="flex flex-col space-y-6">
+        {
+          links.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="font-['JetBrains_Mono'] text-xl font-medium text-white transition-colors duration-300 hover:text-[#D946EF] flex items-center gap-2 group"
+              >
+                <span class="text-[#D946EF] opacity-0 group-hover:opacity-100 transition-opacity text-sm" />{" "}
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class="absolute bottom-10 w-full px-8">
+      <div class="flex gap-6 justify-center border-t border-[#D946EF]/20 pt-6">
+        <FaLinkedinIn className="h-6 w-6 text-gray-500 hover:text-[#D946EF]" />
+        <FaGithub className="h-6 w-6 text-gray-500 hover:text-[#D946EF]" />
+      </div>
+    </div>
   </div>
 </nav>
 

@@ -1,56 +1,81 @@
 ---
 import SocialIcons from "../socialIcons/socialIcons.jsx";
+const currentYear = new Date().getFullYear(); // Año automático
 ---
 
-<footer class="bg-gray-950 text-white">
+<footer
+  class="relative border-t border-[#D946EF]/20 bg-[#0F0720] pt-16 pb-15 text-white"
+>
   <div
-    class="container mx-auto grid grid-cols-1 items-center gap-8 px-6 py-12 lg:grid-cols-3 lg:px-20"
+    class="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#D946EF]/50 to-transparent shadow-[0_0_10px_#D946EF]"
   >
-    <!-- Logo -->
-    <a href="/" class="flex justify-center lg:justify-start">
-      <h3
-        class="text-[#69c7c7] text-2xl font-bold drop-shadow-[1.5px_1.5px_0_#7836cf]"
-      >
-        SALAMANDRA SOLUTIONS
-      </h3>
-    </a>
+  </div>
 
-    <!-- Navigation Links -->
-    <nav class="flex justify-center mb-4 lg:mb-0">
-      <ul
-        class="flex flex-col items-center space-y-2 text-gray-400 lg:flex-row lg:items-start lg:space-y-0 lg:space-x-6"
-      >
+  <div
+    class="container mx-auto grid grid-cols-1 gap-10 px-6 lg:grid-cols-3 lg:px-20 items-start"
+  >
+    <div
+      class="flex flex-col items-center lg:items-start text-center lg:text-left"
+    >
+      <a href="/" class="group block mb-4">
+        <h3
+          class="font-['Outfit'] text-2xl font-extrabold tracking-tight text-white transition-opacity hover:opacity-90"
+        >
+          SALAMANDRA <span class="text-[#D946EF]">SOLUTIONS</span><span
+            class="text-[#D946EF] group-hover:animate-pulse"></span>
+        </h3>
+      </a>
+      <p class="max-w-xs font-['Outfit'] text-sm font-light text-[#C4B5FD]/70">
+        Desarrollo de software a medida, arquitectura web y soluciones digitales
+        de alto rendimiento.
+      </p>
+    </div>
+
+    <nav class="flex justify-center lg:justify-center w-full">
+      <ul class="flex flex-col items-center space-y-3 lg:items-start">
         <li>
-          <a href="/" class="hover:text-[#552496] font-semibold">Inicio</a>
+          <a href="/" class="nav-link-footer">Inicio</a>
         </li>
         <li>
-          <a href="/Proyectos" class="hover:text-[#552496] font-semibold"
-            >Proyectos</a
-          >
+          <a href="/proyectos" class="nav-link-footer">Proyectos</a>
         </li>
         <li>
-          <a href="/lautaro" class="hover:text-[#552496] font-semibold"
-            >Sobre nosotros</a
-          >
+          <a href="/about" class="nav-link-footer">Sobre nosotros</a>
         </li>
         <li>
-          <a href="/links" class="hover:text-[#552496] font-semibold"
-            >Contacto</a
-          >
+          <a href="/contact" class="nav-link-footer">Contacto</a>
         </li>
       </ul>
     </nav>
 
-    <!-- Social Media Links -->
-    <div class="flex justify-center lg:justify-end space-x-4">
-      <SocialIcons client:visible />
+    <div class="flex flex-col items-center lg:items-end space-y-6">
+      <div class="scale-100 opacity-90 hover:opacity-100 transition-opacity">
+        <SocialIcons client:visible />
+      </div>
+
+      <a
+        href="mailto:info@salamandrasolutions.com"
+        class="group flex items-center gap-2 font-['JetBrains_Mono'] text-sm text-[#C4B5FD] transition-colors hover:text-[#D946EF]"
+      >
+        <span class="text-[#D946EF] opacity-50 group-hover:opacity-100">✉</span>
+        info@salamandrasolutions.com
+      </a>
     </div>
   </div>
-
-  <!-- Copyright -->
-  <div
-    class="w-full border-t border-gray-600 py-10 text-center text-sm text-gray-500"
-  >
-    info@salamandrasolutions.com
-  </div>
 </footer>
+
+<style>
+  /* Clase reutilizable para los links del footer */
+  .nav-link-footer {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.9rem;
+    color: #c4b5fd; /* Lavanda suave */
+    transition: all 0.2s ease-in-out;
+  }
+
+  .nav-link-footer:hover {
+    color: #d946ef; /* Fucsia */
+    text-shadow: 0 0 8px rgba(217, 70, 239, 0.4); /* Glow effect */
+    padding-left: 4px; /* Pequeño movimiento a la derecha */
+  }
+</style>

@@ -5,6 +5,68 @@ html {
   scroll-behavior: smooth;
 }
 
+@theme {
+  /* TUS NUEVAS FUENTES */
+  --font-outfit: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* PALETA CYBER-MAGIC (Violeta Profundo + Fucsia) */
+  --color-bg-body: #0F0720;   /* Fondo Violeta Noche */
+  --color-bg-card: #1E1236;   /* Fondo Tarjetas un poco más claro */
+  
+  --color-magic: #D946EF;       /* Fucsia Principal */
+  --color-magic-dim: #A21CAF;   /* Fucsia Oscuro (Bordes) */
+  --color-magic-glow: #F0ABFC;  /* Fucsia Claro (Textos brillantes) */
+
+  --color-text-main: #FFFFFF;
+  --color-text-muted: #C4B5FD;  /* Violeta Lavanda suave */
+}
+
+/* BASE */
+body {
+    background-color: var(--color-bg-body);
+    color: var(--color-text-main);
+    font-family: var(--font-outfit); /* Outfit para todo el texto general */
+    /* Un degradado sutil en el fondo para dar profundidad */
+    background-image: radial-gradient(circle at 50% 0%, #2e1065 0%, #0f0720 60%);
+}
+
+/* --- CLASES PRO PARA ESTA COMBINACIÓN --- */
+
+/* 1. Títulos "Outfit" (Modernos y Gorditos) */
+.title-cyber {
+    font-family: var(--font-outfit);
+    font-weight: 800; /* Outfit queda genial en ExtraBold */
+    letter-spacing: -0.02em; /* Un pelín juntas para que se vea compacto */
+    color: white;
+}
+
+/* 2. Detalles "JetBrains" (Técnicos) */
+.mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-magic);
+    letter-spacing: 0.05em; /* Separadas para leer bien el código */
+}
+
+/* 3. Botones (Fusión) */
+.btn-cyber {
+    font-family: var(--font-mono); /* Usamos la mono en botones para toque tech */
+    font-weight: 700;
+    background: transparent;
+    color: white;
+    border: 1px solid var(--color-magic);
+    box-shadow: 0 0 10px rgba(217, 70, 239, 0.1); /* Brillo suave */
+    @apply px-6 py-2.5 rounded-lg transition-all duration-300;
+}
+
+.btn-cyber:hover {
+    background: var(--color-magic);
+    color: white;
+    box-shadow: 0 0 25px rgba(217, 70, 239, 0.6); /* Súper brillo al hover */
+    transform: translateY(-2px);
+}
+
 .primary {
   color: #7836cf;
 }
@@ -80,3 +142,5 @@ html {
 .text-shadow {
   text-shadow: 2px 2px 0 #6d0deb;
 }
+
+

@@ -11,13 +11,13 @@ export const proyectos = [
     demo: "https://proyecto-final-rodriguez-sable.vercel.app/",
     codigo: "https://github.com/Lautaro-R-collins/ProyectoFinal-Rodriguez.git",
   },
-  {
-    titulo: "Página web de Fututros Talentos",
-    imagen: TalentiaApp.src,
-    tecnologias: ["Wordpress", "Elementor"],
-    demo: "https://back-express-todo.onrender.com",
-    codigo: "https://github.com/Lautaro-R-collins/Back-express-todo.git",
-  },
+  // {
+  //   titulo: "Página web de Fututros Talentos",
+  //   imagen: TalentiaApp.src,
+  //   tecnologias: ["Wordpress", "Elementor"],
+  //   demo: "https://back-express-todo.onrender.com",
+  //   codigo: "https://github.com/Lautaro-R-collins/Back-express-todo.git",
+  // },
   {
     titulo: "ERP para Talentia",
     descripcion: "Es una aplicación web desde la que pueden gestionar la base de datos de su otra aplicación desde con una interfaz y herramientas amigables",
@@ -34,11 +34,11 @@ export const proyectos = [
     demo: "https://front-react-todo.onrender.com",
     codigo: "https://github.com/Lautaro-R-collins/Front-react-todo",
   },
-  {
-    titulo: "ERP para Retorika",
-    imagen: AsesoriaRetorika.src,
-    tecnologias: ["Express", "Node.js", "PostgreeSQL", "React"],
-    demo: "https://back-express-todo.onrender.com",
-    codigo: "https://github.com/Lautaro-R-collins/Back-express-todo.git",
-  },
+  // {
+  //   titulo: "ERP para Retorika",
+  //   imagen: AsesoriaRetorika.src,
+  //   tecnologias: ["Express", "Node.js", "PostgreeSQL", "React"],
+  //   demo: "https://back-express-todo.onrender.com",
+  //   codigo: "https://github.com/Lautaro-R-collins/Back-express-todo.git",
+  // },
 ];
