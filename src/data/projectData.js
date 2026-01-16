@@ -24,6 +24,16 @@ export const proyectos = [
     categoria: "fullstack",
   },
   {
+    titulo: "Página web Futuros Talentos",
+    descripcion:
+      "Rediseño integral de la plataforma 'Futuros Talentos' potenciado por Elementor para ofrecer una estética vanguardista y profesional. El proyecto se centró en la modernización de la identidad visual y la implementación de una interfaz altamente intuitiva, optimizando tanto el impacto visual como la experiencia de usuario mediante soluciones técnicas modernas.",
+    imagen: futurosTalentos.src,
+    tecnologias: ["Elementor", "Wordpress"],
+    demo: "https://traker-gastos-ingresos.onrender.com/",
+    codigo: "https://github.com/Lautaro-R-collins/Traker-Gastos-Ingresos",
+    categoria: "frontend",
+  },
+  {
     titulo: "Asesoría Retorika",
     descripcion:
       "Este proyecto proporciona mediante scripts la personalización del pluggin de TutorLMS, se añadieron funcionalidades de pago y otras que no tenía el pluggin de forma gratuita. Además de un login y registro personalizados y todo conectado con su programa de gestión(ERP).",

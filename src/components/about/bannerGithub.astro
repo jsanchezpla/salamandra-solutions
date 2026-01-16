@@ -5,12 +5,11 @@ const imageUrl = "/github.png";
 
 <section class="mt-16 flex justify-center px-4">
 	<div
-		class="mx-auto max-h-80 w-full max-w-[1120px] overflow-hidden rounded-2xl bg-linear-to-r from-[#211355] to-[#12186e] text-white shadow-lg drop-shadow-[4px_4px_0_#7836cf]"
+		class="mx-auto max-h-80 w-full max-w-[1120px] overflow-hidden rounded-2xl bg-linear-to-r from-[#211355] to-[#12186e] text-white shadow-lg border border-[#D946EF]/20 drop-shadow-[4px_4px_0_#D946EF]"
 	>
 		<div
 			class="flex h-full flex-col items-center md:flex-row-reverse md:items-start"
 		>
-			<!-- Logo GitHub -->
 			<div
 				class="flex h-full w-full shrink-0 items-center justify-center md:w-auto md:justify-end"
 			>
@@ -18,25 +17,26 @@ const imageUrl = "/github.png";
 					<img
 						src={imageUrl}
 						alt="GitHub Logo"
-						class="h-auto w-72 cursor-pointer object-contain transition hover:scale-105 md:w-[470px]"
+						class="h-auto w-72 cursor-pointer object-contain transition hover:scale-105 md:w-[470px] filter brightness-110 group-hover:drop-shadow-[0_0_15px_rgba(217,70,239,0.4)]"
 					/>
 				</a>
 			</div>
 
-			<!-- Texto y botón -->
 			<div class="flex-1 p-4 text-center md:p-8 md:text-left">
-				<h3 class="text-5xl font-bold md:text-4xl">
-					¡Visita mi GitHub!
+				<h3 class="font-['Outfit'] text-4xl font-bold md:text-4xl">
+					¡Visita mi <span class="text-[#D946EF]">GitHub</span>!
 				</h3>
-				<p class="mt-2 text-sm md:text-xl">
-					Hola! te invito a mi perfil de GitHub para que puedas
+				<p
+					class="mt-2 font-['Outfit'] font-light text-sm md:text-xl text-[#C4B5FD]"
+				>
+					¡Hola! Te invito a mi perfil de GitHub para que puedas
 					explorar mis proyectos y contribuciones más recientes.
 				</p>
 				<a
 					href={githubUrl}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="mt-4 inline-block rounded-full bg-white px-6 py-3 font-semibold text-black transition hover:bg-gray-200"
+					class="mt-6 inline-block rounded-lg bg-[#D946EF] px-8 py-3 font-['JetBrains_Mono'] text-sm font-bold text-white transition hover:bg-[#c026d3] hover:shadow-[0_0_20px_rgba(217,70,239,0.4)] uppercase tracking-tighter"
 				>
 					Ir a GitHub
 				</a>

@@ -3,74 +3,119 @@ import Layout from "../layouts/Layout.astro";
 import logoSalamandra from "../assets/img/logoSalamandra.png";
 import CopyMail from "../components/links/copyMail.jsx";
 import ContactForm from "../components/commons/contact/contactForm.astro";
+import { HiArrowUpRight } from "react-icons/hi2"; // Icono de flecha para los links
 
 const links = [
   {
     href: "https://es.linkedin.com/company/salamandraproducciones",
     label: "LinkedIn",
+    icon: "LIN", // Siglas para efecto visual
   },
-  { href: "https://github.com/jsanchezpla", label: "GitHub" },
-  { href: "mailto:info@salamandrasolutions.com", label: "Email" },
+  { href: "https://github.com/jsanchezpla", label: "GitHub", icon: "GIT" },
+  { href: "mailto:info@salamandrasolutions.com", label: "Email", icon: "MAIL" },
 ];
 ---
 
-<Layout>
+<Layout title="Contacto" description="Hablemos de tu proyecto">
   <section
-    class="bg-gray-900 flex min-h-screen flex-col items-center justify-center px-6"
+    class="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#0F0720] px-4 py-30"
   >
-    <div class="mb-2 mt-15">
-      <div class="mb-2 mt-11">
-        <div class="relative flex items-center justify-center">
-          <!-- Foto con borde -->
-          <img
-            src={logoSalamandra.src}
-            alt="Logo de Salamandra"
-            class="border-primary h-32 w-32 rounded-full shadow-lg"
-          />
-
-          <!-- Texto circular alrededor de la foto -->
-          <svg
-            viewBox="0 0 200 200"
-            class="animate-spin-slow absolute h-48 w-48"
-          >
-            <path
-              id="circlePathText"
-              d="M100,100 m-77,0 a77,77 0 1,1 154,0 a77,77 0 1,1 -154,0"
-              fill="none"></path>
-            <text fill="#69c7c7" font-size="18" font-weight="bold">
-              <textPath href="#circlePathText" startOffset="0%">
-                ✦ Hola ! ✦ Estamos disponibles para nuevas oportunidades!
-              </textPath>
-            </text>
-          </svg>
-        </div>
+    <div class="absolute inset-0 z-0">
+      <div
+        class="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
+      >
+      </div>
+      <div
+        class="absolute left-1/2 top-20 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-[#D946EF]/20 blur-[100px]"
+      >
       </div>
     </div>
 
-    <CopyMail client:visible />
+    <div class="relative z-10 flex w-full max-w-2xl flex-col items-center">
+      <div class="mb-10 relative flex items-center justify-center">
+        <div
+          class="relative z-10 h-32 w-32 rounded-full border-2 border-[#D946EF] bg-[#0F0720] p-1 shadow-[0_0_30px_rgba(217,70,239,0.3)]"
+        >
+          <img
+            src={logoSalamandra.src}
+            alt="Logo de Salamandra"
+            class="h-full w-full rounded-full object-cover"
+          />
+        </div>
 
-    <!-- Lista de Links -->
-    <div class="w-full max-w-xl space-y-4 mb-7">
-      {
-        links.map((link) => (
-          <a
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block font-bold w-full rounded-lg bg-primary hover:bg-secondary drop-shadow-[2px_2px_0_#0debd8] px-6 py-3 text-center text-white transition "
+        <svg
+          viewBox="0 0 200 200"
+          class="animate-spin-slow absolute h-[13rem] w-[13rem]"
+        >
+          <path
+            id="circlePathText"
+            d="M100,100 m-77,0 a77,77 0 1,1 154,0 a77,77 0 1,1 -154,0"
+            fill="none"></path>
+          <text
+            fill="#D946EF"
+            font-size="14"
+            font-family="JetBrains Mono"
+            font-weight="bold"
+            letter-spacing="2"
           >
-            {link.label}
-          </a>
-        ))
-      }
+            <textPath href="#circlePathText" startOffset="0%">
+              // OPEN TO WORK // NEW PROJECTS //
+            </textPath>
+          </text>
+        </svg>
+      </div>
+
+      <div class="my-8 w-full flex justify-center">
+        <CopyMail client:visible />
+      </div>
+
+      <div class="w-full space-y-4 mb-12">
+        {
+          links.map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group relative flex w-full items-center justify-between rounded-xl border border-[#D946EF]/30 bg-[#1E1236]/60 px-6 py-4 backdrop-blur-md transition-all duration-300 hover:border-[#D946EF] hover:bg-[#D946EF]/10 hover:shadow-[0_0_20px_rgba(217,70,239,0.2)]"
+            >
+              <div class="flex items-center gap-4">
+                <span class="font-['JetBrains_Mono'] text-xs font-bold text-[#D946EF] opacity-70 group-hover:opacity-100">
+                  [{link.icon}]
+                </span>
+                <span class="font-['Outfit'] text-lg font-bold text-white group-hover:text-[#D946EF] transition-colors">
+                  {link.label}
+                </span>
+              </div>
+
+              <HiArrowUpRight
+                className="text-gray-500 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-white"
+                size={20}
+              />
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="mb-12 flex w-full items-center gap-4">
+        <div class="h-[1px] w-full bg-[#D946EF]/20"></div>
+        <span class="shrink-0 font-['JetBrains_Mono'] text-xs text-[#D946EF]"
+          >O ENVÍANOS UN MENSAJE</span
+        >
+        <div class="h-[1px] w-full bg-[#D946EF]/20"></div>
+      </div>
+
+      <div
+        class="w-full rounded-2xl border border-[#D946EF]/10 bg-[#1E1236]/40 p-1 backdrop-blur-sm"
+      >
+        <ContactForm />
+      </div>
     </div>
-    <ContactForm />
   </section>
 </Layout>
 
 <style>
   .animate-spin-slow {
-    animation: spin 25s linear infinite;
+    animation: spin 20s linear infinite; /* Un poco más rápido para dar dinamismo */
   }
 
   @keyframes spin {

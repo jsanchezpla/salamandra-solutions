@@ -1,5 +1,4 @@
 ---
-import "../styles/projects.css";
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/commons/hero/hero.astro";
 import ProjectCard from "../components/project/proyectCard.astro";
@@ -7,79 +6,95 @@ import Banner from "../components/commons/banners/banner.astro";
 import { proyectos } from "../data/projectData.js";
 ---
 
-<Layout title="Proyectos" description="Proyectos">
-  <Hero titulo="Proyectos" />
+<Layout title="Proyectos" description="Portafolio de proyectos">
+  <div class="bg-[#0F0720] min-h-screen relative">
+    <Hero titulo="Proyectos" />
 
-  <!-- Botones -->
-  <div class="mt-6 mb-6 flex flex-wrap justify-center gap-3 px-2">
-    <button
-      class="filter-btn cursor-pointer rounded-full bg-[#69c7c7] px-5 py-1.5 text-sm font-bold text-[#1d1250] drop-shadow-[2px_2px_0_#7836cf] transition-all duration-150 active:translate-y-0.5 active:drop-shadow-none"
-      data-filter="all"
+    <div class="relative z-20 -mt-24 mb-12 flex flex-wrap justify-center px-4">
+      <div
+        class="flex flex-wrap justify-center gap-4 rounded-2xl border border-[#D946EF]/20 bg-[#1E1236]/80 p-2 backdrop-blur-xl shadow-2xl"
+      >
+        <button
+          class="filter-btn group relative px-6 py-2 font-['JetBrains_Mono'] text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-lg border border-[#D946EF] bg-[#D946EF] text-white shadow-[0_0_15px_rgba(217,70,239,0.4)]"
+          data-filter="all"
+        >
+          <span class="mr-2 opacity-50 text-white group-hover:opacity-100"
+            >//</span
+          >TODOS
+        </button>
+
+        <button
+          class="filter-btn group relative px-6 py-2 font-['JetBrains_Mono'] text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-lg border border-transparent text-[#D946EF] hover:bg-[#D946EF]/10"
+          data-filter="fullstack"
+        >
+          <span class="mr-2 opacity-50 group-hover:opacity-100">//</span>FULL
+          STACK
+        </button>
+
+        <button
+          class="filter-btn group relative px-6 py-2 font-['JetBrains_Mono'] text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-lg border border-transparent text-[#D946EF] hover:bg-[#D946EF]/10"
+          data-filter="frontend"
+        >
+          <span class="mr-2 opacity-50 group-hover:opacity-100">//</span
+          >FRONTEND
+        </button>
+
+        <button
+          class="filter-btn group relative px-6 py-2 font-['JetBrains_Mono'] text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-lg border border-transparent text-[#D946EF] hover:bg-[#D946EF]/10"
+          data-filter="backend"
+        >
+          <span class="mr-2 opacity-50 group-hover:opacity-100">//</span>BACKEND
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="projects-container"
+      class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 pb-20 md:grid-cols-2 lg:grid-cols-3 pt-6"
     >
-      Todos
-    </button>
-    <button
-      class="filter-btn cursor-pointer rounded-full bg-[#69c7c7] px-5 py-1.5 text-sm font-bold text-[#1d1250] drop-shadow-[2px_2px_0_#7836cf] transition-all duration-150 active:translate-y-0.5 active:drop-shadow-none"
-      data-filter="fullstack"
-    >
-      Full Stack
-    </button>
-    <button
-      class="filter-btn cursor-pointer rounded-full bg-[#69c7c7] px-5 py-1.5 text-sm font-bold text-[#1d1250] drop-shadow-[2px_2px_0_#7836cf] transition-all duration-150 active:translate-y-0.5 active:drop-shadow-none"
-      data-filter="frontend"
-    >
-      Frontend
-    </button>
-    <button
-      class="filter-btn cursor-pointer rounded-full bg-[#69c7c7] px-5 py-1.5 text-sm font-bold text-[#1d1250] drop-shadow-[2px_2px_0_#7836cf] transition-all duration-150 active:translate-y-0.5 active:drop-shadow-none"
-      data-filter="backend"
-    >
-      Backend
-    </button>
+      {
+        proyectos.map((proyecto, index) => (
+          /* IMPORTANTE: 
+             1. Añadimos la clase "project-card-wrapper" para que el JS la encuentre.
+             2. Usamos data-categoria (en español) para que coincida con tu script.
+             3. Usamos data-index para el control de "Cargar más".
+          */
+          <div
+            class="project-card-wrapper transition-all duration-500"
+            data-categoria={proyecto.categoria}
+            data-index={index}
+          >
+            <ProjectCard
+              index={index}
+              titulo={proyecto.titulo}
+              descripcion={proyecto.descripcion}
+              imagen={proyecto.imagen}
+              tecnologias={proyecto.tecnologias}
+              demo={proyecto.demo}
+              codigo={proyecto.codigo}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="flex justify-center pb-20">
+      <button
+        id="load-more"
+        class="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg border border-[#D946EF]/50 px-8 py-3 font-['JetBrains_Mono'] text-sm font-bold text-[#D946EF] transition-all hover:bg-[#D946EF] hover:text-white hover:shadow-[0_0_20px_rgba(217,70,239,0.4)]"
+      >
+        CARGAR MÁS PROYECTOS
+      </button>
+    </div>
+
+    <Banner />
   </div>
-
-  <!-- Cards -->
-  <div
-    id="projects-container"
-    class="4xl:px-96 flex flex-wrap justify-center gap-5 px-3 pt-5 xl:px-32 2xl:px-60"
-  >
-    {
-      proyectos.map((proyecto, index) => (
-        <ProjectCard
-          index={index}
-          titulo={proyecto.titulo}
-          descripcion={proyecto.descripcion}
-          imagen={proyecto.imagen}
-          tecnologias={proyecto.tecnologias}
-          demo={proyecto.demo}
-          codigo={proyecto.codigo}
-          categoria={proyecto.categoria}
-        />
-      ))
-    }
-  </div>
-
-  <!-- Ver el resto de los proyectos -->
-  <div class="flex justify-center mt-8">
-    <button
-      id="load-more"
-      class="px-6 py-2 cursor-pointer bg-[#69c7c7] text-[#1d1250] font-bold rounded-full hover:bg-[#46caca] drop-shadow-[2px_2px_0_#7836cf] active:translate-y-0.5 active:drop-shadow-none transition-all"
-    >
-      Ver más
-    </button>
-  </div>
-
-  <Banner />
 </Layout>
 
 <script is:inline>
   (function () {
     /* ---------------- CONFIG ---------------- */
-    const VISIBLE_CLASS = "project-visible";
-    const HIDDEN_CLASS = "project-hidden";
-    const HIDE_TIMEOUT = 300;
-
-    const INITIAL_VISIBLE = 12;
+    const INITIAL_VISIBLE = 6; // Mostrar 6 al principio (ajusta si quieres)
     let itemsToShow = INITIAL_VISIBLE;
     let activeFilter = "all";
     let cards = [];
@@ -88,76 +103,117 @@ import { proyectos } from "../data/projectData.js";
 
     /* ---------------- HELPERS ---------------- */
     function queryElements() {
-      cards = Array.from(document.querySelectorAll("[data-index]"));
+      // Buscamos por la clase wrapper que añadimos en el HTML
+      cards = Array.from(document.querySelectorAll(".project-card-wrapper"));
       filterButtons = Array.from(document.querySelectorAll(".filter-btn"));
       loadMoreBtn = document.getElementById("load-more");
     }
 
+    // Función visual para marcar el botón activo intercambiando clases de Tailwind
+    function updateButtonStyles(clickedBtn) {
+      filterButtons.forEach((btn) => {
+        // 1. Reseteamos todos a estilo "Ghost" (Transparente)
+        btn.classList.remove(
+          "bg-[#D946EF]",
+          "text-white",
+          "shadow-[0_0_15px_rgba(217,70,239,0.4)]",
+          "border-[#D946EF]",
+        );
+        btn.classList.add(
+          "bg-transparent",
+          "text-[#D946EF]",
+          "border-transparent",
+        );
+
+        // Si el botón es el clickeado, le ponemos estilo "Solid" (Fucsia)
+        if (btn === clickedBtn) {
+          btn.classList.remove(
+            "bg-transparent",
+            "text-[#D946EF]",
+            "border-transparent",
+          );
+          btn.classList.add(
+            "bg-[#D946EF]",
+            "text-white",
+            "shadow-[0_0_15px_rgba(217,70,239,0.4)]",
+            "border-[#D946EF]",
+          );
+        }
+      });
+    }
+
     function showCard(card) {
-      card.style.display = "flex";
+      card.classList.remove("hidden");
+      // Pequeño timeout para permitir la animación de opacidad
       requestAnimationFrame(() => {
-        card.classList.remove(HIDDEN_CLASS);
-        card.classList.add(VISIBLE_CLASS);
+        card.style.opacity = "1";
+        card.style.transform = "scale(1)";
+        card.style.display = "block"; // Asegurar display block para grid
       });
     }
 
     function hideCard(card) {
-      card.classList.remove(VISIBLE_CLASS);
-      card.classList.add(HIDDEN_CLASS);
+      card.style.opacity = "0";
+      card.style.transform = "scale(0.95)";
       setTimeout(() => {
-        if (card.classList.contains(HIDDEN_CLASS)) {
-          card.style.display = "none";
-        }
-      }, HIDE_TIMEOUT);
+        card.classList.add("hidden");
+        card.style.display = "none"; // Ocultar del flujo
+      }, 300);
     }
 
-    function setActiveButton(btn) {
-      filterButtons.forEach((b) => b.classList.remove("active"));
-      if (btn) btn.classList.add("active");
-    }
-
-    /* ---------------- FILTRADO ---------------- */
+    /* ---------------- LOGICA DE FILTRADO ---------------- */
     function applyFilter(filter) {
       activeFilter = filter ?? "all";
       const normalized = activeFilter.toLowerCase();
 
-      cards = Array.from(document.querySelectorAll("[data-index]"));
-
-      const filteredCards = cards.filter((card) => {
+      // Filtramos la lista lógica de tarjetas
+      const visibleCards = cards.filter((card) => {
         const categoria = (card.dataset.categoria ?? "").toLowerCase();
         return normalized === "all" || categoria === normalized;
       });
 
-      cards.forEach((c) => hideCard(c));
-
-      filteredCards.forEach((card, i) => {
-        if (i < itemsToShow) showCard(card);
+      // 1. Ocultamos TODAS primero
+      cards.forEach((c) => {
+        if (!visibleCards.includes(c)) hideCard(c);
       });
 
-      // botón ver más visible solo si hay más para ver
-      if (!loadMoreBtn) return;
-      loadMoreBtn.style.display =
-        filteredCards.length > itemsToShow ? "block" : "none";
+      // 2. Mostramos solo las que cumplen el filtro Y el límite de items
+      visibleCards.forEach((card, i) => {
+        if (i < itemsToShow) {
+          showCard(card);
+        } else {
+          hideCard(card);
+        }
+      });
+
+      // 3. Gestionar botón "Ver más"
+      if (loadMoreBtn) {
+        if (visibleCards.length > itemsToShow) {
+          loadMoreBtn.style.display = "inline-flex";
+          loadMoreBtn.classList.remove("hidden");
+        } else {
+          loadMoreBtn.style.display = "none";
+          loadMoreBtn.classList.add("hidden");
+        }
+      }
     }
 
-    /* ---------------- Filtros eventos ---------------- */
+    /* ---------------- EVENTOS ---------------- */
     function attachFilterEvents() {
       if (!filterButtons.length) return;
+
       filterButtons.forEach((btn) => {
-        btn.onclick = () => {
-          itemsToShow = INITIAL_VISIBLE;
+        btn.onclick = (e) => {
+          e.preventDefault(); // Evitar saltos raros
+          itemsToShow = INITIAL_VISIBLE; // Resetear contador al cambiar filtro
           const filter = btn.dataset.filter || "all";
-          setActiveButton(btn);
-          applyFilter(filter);
+
+          updateButtonStyles(btn); // Actualizar colores
+          applyFilter(filter); // Aplicar lógica
         };
       });
-
-      // activar "Todos" al inicio
-      const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
-      setActiveButton(allBtn);
     }
 
-    /* ---------------- Ver mas ---------------- */
     function attachLoadMore() {
       if (!loadMoreBtn) return;
       loadMoreBtn.onclick = () => {
@@ -171,9 +227,15 @@ import { proyectos } from "../data/projectData.js";
       queryElements();
       attachFilterEvents();
       attachLoadMore();
+
+      // Estado inicial: Marcamos "Todos" como activo
+      const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+      if (allBtn) updateButtonStyles(allBtn);
+
       applyFilter("all");
     }
 
+    // Soporte para Astro View Transitions y carga normal
     document.addEventListener("astro:page-load", init);
     window.addEventListener("load", init);
   })();

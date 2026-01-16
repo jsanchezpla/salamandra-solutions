@@ -1,22 +1,50 @@
 ---
 export interface Props {
   titulo: string;
+  subtitle?: string;
 }
 
-const { titulo } = Astro.props;
+const { titulo, subtitle } = Astro.props;
 ---
 
-<section
-  class="relative text-white py-24 mt-[72px] overflow-hidden
-  bg-[linear-gradient(#ffffff33_1px,transparent_1px),linear-gradient(90deg,#ffffff33_1px,transparent_1px)]
-  bg-size-[25px_25px] bg-[#15052c]
-  mask-[linear-gradient(to_bottom,black,black,transparent)]"
->
-  <div class="max-w-6xl mx-auto px-6 text-center relative">
-    <h1
-      class="text-4xl md:text-6xl font-extrabold mb-4 tracking-wide drop-shadow-lg text-shadow-cyan"
+<section class="relative overflow-hidden bg-[#0F0720] pt-32 pb-38">
+  <div class="absolute inset-0 pointer-events-none">
+    <div
+      class="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
     >
-      {titulo}
+    </div>
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#D946EF]/20 blur-[120px] rounded-full"
+    >
+    </div>
+
+    <div
+      class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-b from-transparent to-[#0F0720]"
+    >
+    </div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-4xl px-6 text-center">
+    <div class="mb-6 flex justify-center">
+      <span
+        class="rounded-full border border-[#D946EF]/30 bg-[#D946EF]/10 px-4 py-1 font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-widest text-[#D946EF] backdrop-blur-md"
+      >
+        // {titulo}
+      </span>
+    </div>
+
+    <h1
+      class="font-['Outfit'] text-5xl md:text-7xl font-extrabold tracking-tight text-white"
+    >
+      {titulo}<span class="text-[#D946EF]">.</span>
     </h1>
+
+    {
+      subtitle && (
+        <p class="mx-auto max-w-2xl font-['Outfit'] text-lg font-light text-[#C4B5FD]">
+          {subtitle}
+        </p>
+      )
+    }
   </div>
 </section>

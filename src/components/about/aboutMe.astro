@@ -2,54 +2,99 @@
 import FotoJorge from "../../assets/img/FotoJorge.png";
 ---
 
-<!-- Contenedor principal -->
-<div
-  class="mx-auto mt-20 flex max-w-6xl flex-col items-center gap-8 px-6 lg:flex-row"
->
-  <!-- Imagen -->
+<section class="relative py-20 px-6 overflow-hidden">
   <div
-    class="border-primary h-64 w-64 overflow-hidden rounded-2xl shadow-lg md:h-96 md:w-96 drop-shadow-[4px_4px_0_#7836cf]"
+    class="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#D946EF]/10 blur-[120px] rounded-full -z-10 pointer-events-none"
   >
-    <img
-      src={FotoJorge.src}
-      alt="Foto de Jorge"
-      class="h-full w-full object-cover"
-    />
   </div>
 
-  <!-- Texto -->
-  <div class="flex-1 text-center text-gray-300 lg:text-left">
-    <h2 class="text-3xl font-bold text-white">
-      Mi nombre es <span class="text-white text-shadow">Jorge</span>
-    </h2>
-    <p class="mt-4">
-      Soy de <span class="text-primary font-semibold">Extremadura</span> y actualmente
-      me desempeño como
-      <span class="text-primary font-semibold"
-        >desarrollador de software full-stack</span
-      >, con un enfoque en el <span class="text-primary font-semibold"
-        >desarrollo web</span
-      > y el
-      <span class="text-primary font-semibold">backend</span>, usando
-      tecnologías como <span class="text-primary italic"
-        >React, React Native, Astro, JavaScript, CSS, Node.js, Express.js y
-        PostgreeSQL</span
-      >.
-    </p>
-    <p class="mt-2">
-      Tengo el grado superior de <span class="text-primary font-semibold"
-        >Administración de Sistemas Informáticos en Red (ASIR)
-      </span> y el de
-      <span class="text-primary font-semibold"
-        >Desarrollo de Aplicaciones Multiplataforma (DAM)</span
-      >, por lo tanto tengo conocimientos de varias áreas de la informática.
-    </p>
-    <p class="mt-2">
-      Mi área favorita es la <span class="text-primary font-semibold"
-        >investigación</span
-      > que me hace estar siempre al día en cuanto a las <span
-        class="text-primary font-semibold">nuevas tecnologías</span
-      > que van saliendo.
-    </p>
+  <div
+    class="mx-auto flex max-w-6xl flex-col items-center gap-12 lg:flex-row lg:gap-20"
+  >
+    <div class="group relative shrink-0">
+      <div
+        class="absolute inset-0 rotate-6 rounded-2xl border border-[#D946EF]/20 bg-[#1E1236]/30 backdrop-blur-sm transition-transform duration-500 group-hover:rotate-12"
+      >
+      </div>
+
+      <div
+        class="relative h-72 w-72 overflow-hidden rounded-2xl border-2 border-[#D946EF]/50 shadow-[0_0_40px_rgba(217,70,239,0.2)] transition-all duration-500 group-hover:scale-[1.02] md:h-80 md:w-80"
+      >
+        <img
+          src={FotoJorge.src}
+          alt="Foto de Jorge"
+          class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+        <div class="absolute inset-0 bg-[#0F0720]/10 mix-blend-overlay"></div>
+      </div>
+    </div>
+
+    <div class="flex-1 text-center lg:text-left">
+      <h2
+        class="mb-6 font-['Outfit'] text-4xl font-bold text-white md:text-5xl"
+      >
+        Mi nombre es <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-[#D946EF] to-[#F0ABFC]"
+          >Jorge</span
+        >
+      </h2>
+
+      <div
+        class="space-y-6 font-['Outfit'] text-lg font-light leading-relaxed text-[#C4B5FD]"
+      >
+        <p>
+          Soy de <span class="font-bold text-white">Extremadura</span> y actualmente
+          me desempeño como
+          <span class="font-bold text-white">Full Stack Developer</span>, con
+          enfoque principal en el <span
+            class="font-['JetBrains_Mono'] text-[#D946EF]">desarrollo web</span
+          >.
+        </p>
+
+        <div
+          class="rounded-xl border border-[#D946EF]/10 bg-[#1E1236]/40 p-5 backdrop-blur-sm text-left"
+        >
+          <p
+            class="mb-3 font-['JetBrains_Mono'] text-xs uppercase tracking-widest text-[#D946EF]/70"
+          >
+            Stack Tecnológico:
+          </p>
+          <div class="flex flex-wrap gap-2 justify-center lg:justify-start">
+            {
+              [
+                "React",
+                "Astro",
+                "Node.js",
+                "Express",
+                "PostgreSQL",
+                "JavaScript",
+                "TypeScript",
+              ].map((tech) => (
+                <span class="rounded px-2 py-1 font-['JetBrains_Mono'] text-sm font-medium text-[#D946EF] bg-[#D946EF]/10 border border-[#D946EF]/20">
+                  {tech}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        <p>
+          Tengo el grado superior de
+          <span class="font-medium text-white border-b border-[#D946EF]/30"
+            >ASIR</span
+          > (Administración de Sistemas) y
+          <span class="font-medium text-white border-b border-[#D946EF]/30"
+            >DAM</span
+          > (Desarrollo Multiplataforma), por lo tanto tengo conocimientos de varias
+          áreas de la informática.
+        </p>
+
+        <p>
+          Mi área favorita es la <span
+            class="font-['JetBrains_Mono'] text-[#D946EF]">investigación</span
+          > que me hace estar siempre al día en cuanto a las tecnologías que van saliendo.
+        </p>
+      </div>
+    </div>
   </div>
-</div>
+</section>

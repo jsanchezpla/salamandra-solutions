@@ -1,6 +1,6 @@
 ---
 const {
-    title = "Contacto",
+    title = "Contáctanos",
     subtitle = "Cuéntanos en qué podemos ayudarte y te respondoremos lo antes posible.",
 } = Astro.props;
 
@@ -8,139 +8,149 @@ const success = Astro.url.searchParams.get("sent") === "1";
 const error = Astro.url.searchParams.get("error") === "1";
 ---
 
-<section class="w-full py-10">
-    <div class="mx-auto max-w-2xl px-4">
-        <div
-            class="rounded-2xl border border-white/10 bg-gray-950/60 p-6 shadow-lg backdrop-blur md:p-8"
-        >
-            <header class="mb-6">
-                <h2
-                    class="text-2xl font-bold tracking-tight text-white md:text-3xl"
-                >
-                    {title}
-                </h2>
-                <p class="mt-2 text-sm text-gray-300 md:text-base">
-                    {subtitle}
-                </p>
-            </header>
+<div class="w-full">
+    <div
+        class="relative overflow-hidden rounded-2xl border border-[#D946EF]/20 bg-[#1E1236]/60 p-6 shadow-[0_0_40px_rgba(217,70,239,0.1)] backdrop-blur-md md:p-8"
+    >
+        <header class="mb-8">
+            <h2
+                class="font-['Outfit'] text-2xl font-bold tracking-tight text-white md:text-3xl"
+            >
+                {title}
+                <span class="text-[#D946EF]">.</span>
+            </h2>
+            <p
+                class="mt-2 font-['Outfit'] text-sm font-light text-[#C4B5FD] md:text-base"
+            >
+                {subtitle}
+            </p>
+        </header>
 
-            {
-                success && (
-                    <div class="mb-5 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-200">
-                        Mensaje enviado. ¡Gracias! Te responderemos pronto.
-                    </div>
-                )
-            }
-
-            {
-                error && (
-                    <div class="mb-5 rounded-xl border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-200">
-                        Hubo un error al enviar el mensaje. Prueba de nuevo.
-                    </div>
-                )
-            }
-
-            <form action="/api/contact" method="POST" class="space-y-4">
-                <!-- Honeypot anti-spam (no lo ve el usuario) -->
-                <div class="hidden">
-                    <label>
-                        No rellenar
-                        <input
-                            name="company"
-                            tabindex="-1"
-                            autocomplete="off"
-                        />
-                    </label>
+        {
+            success && (
+                <div class="mb-6 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 font-['JetBrains_Mono'] text-sm text-emerald-400">
+                    <span class="mr-2 font-bold">✓</span> Mensaje enviado con
+                    éxito.
                 </div>
+            )
+        }
 
-                <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-                    <div>
-                        <label
-                            for="name"
-                            class="mb-1 block text-sm font-medium text-gray-200"
-                        >
-                            Nombre
-                        </label>
-                        <input
-                            id="name"
-                            name="name"
-                            type="text"
-                            required
-                            autocomplete="name"
-                            placeholder="Tu nombre"
-                            class="w-full rounded-xl border border-white/10 bg-gray-900/60 px-4 py-3 text-sm text-white placeholder:text-gray-500 outline-none ring-0 transition focus:border-[#69c7c7]/60 focus:outline-none focus:ring-2 focus:ring-[#69c7c7]/30"
-                        />
-                    </div>
+        {
+            error && (
+                <div class="mb-6 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 font-['JetBrains_Mono'] text-sm text-red-400">
+                    <span class="mr-2 font-bold">✕</span> Hubo un error.
+                    Inténtalo de nuevo.
+                </div>
+            )
+        }
 
-                    <div>
-                        <label
-                            for="email"
-                            class="mb-1 block text-sm font-medium text-gray-200"
-                        >
-                            Email
-                        </label>
-                        <input
-                            id="email"
-                            name="email"
-                            type="email"
-                            required
-                            autocomplete="email"
-                            placeholder="tucorreo@ejemplo.com"
-                            class="w-full rounded-xl border border-white/10 bg-gray-900/60 px-4 py-3 text-sm text-white placeholder:text-gray-500 outline-none transition focus:border-[#69c7c7]/60 focus:ring-2 focus:ring-[#69c7c7]/30"
-                        />
-                    </div>
+        <form
+            id="contact-form"
+            action="/api/contact"
+            method="POST"
+            class="space-y-5"
+        >
+            <div class="hidden">
+                <label>
+                    No rellenar
+                    <input name="company" tabindex="-1" autocomplete="off" />
+                </label>
+            </div>
+
+            <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+                <div>
+                    <label
+                        for="name"
+                        class="mb-2 block font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-wider text-[#D946EF]"
+                    >
+                        // Nombre
+                    </label>
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        required
+                        autocomplete="name"
+                        placeholder="Tu nombre o empresa"
+                        class="w-full rounded-lg border border-[#D946EF]/20 bg-[#0F0720]/80 px-4 py-3 font-['JetBrains_Mono'] text-sm text-white placeholder:text-[#C4B5FD]/30 focus:border-[#D946EF] focus:outline-none focus:ring-1 focus:ring-[#D946EF] transition-all duration-300"
+                    />
                 </div>
 
                 <div>
                     <label
-                        for="message"
-                        class="mb-1 block text-sm font-medium text-gray-200"
+                        for="email"
+                        class="mb-2 block font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-wider text-[#D946EF]"
                     >
-                        Mensaje
+                        // Email
                     </label>
-                    <textarea
-                        id="message"
-                        name="message"
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
                         required
-                        rows="6"
-                        placeholder="Cuéntanos qué necesitas..."
-                        class="w-full resize-none rounded-xl border border-white/10 bg-gray-900/60 px-4 py-3 text-sm text-white placeholder:text-gray-500 outline-none transition focus:border-[#69c7c7]/60 focus:ring-2 focus:ring-[#69c7c7]/30"
-                    ></textarea>
+                        autocomplete="email"
+                        placeholder="nombre@ejemplo.com"
+                        class="w-full rounded-lg border border-[#D946EF]/20 bg-[#0F0720]/80 px-4 py-3 font-['JetBrains_Mono'] text-sm text-white placeholder:text-[#C4B5FD]/30 focus:border-[#D946EF] focus:outline-none focus:ring-1 focus:ring-[#D946EF] transition-all duration-300"
+                    />
                 </div>
+            </div>
 
-                <div
-                    class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
+            <div>
+                <label
+                    for="message"
+                    class="mb-2 block font-['JetBrains_Mono'] text-xs font-bold uppercase tracking-wider text-[#D946EF]"
                 >
-                    <p class="text-xs text-gray-400">
-                        Al enviar aceptas que te contactemos para responder tu
-                        solicitud.
-                    </p>
+                    // Mensaje
+                </label>
+                <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows="5"
+                    placeholder="Cuéntanos los detalles de tu proyecto..."
+                    class="w-full resize-none rounded-lg border border-[#D946EF]/20 bg-[#0F0720]/80 px-4 py-3 font-['JetBrains_Mono'] text-sm text-white placeholder:text-[#C4B5FD]/30 focus:border-[#D946EF] focus:outline-none focus:ring-1 focus:ring-[#D946EF] transition-all duration-300"
+                ></textarea>
+            </div>
 
-                    <button
-                        type="submit"
-                        class="inline-flex items-center justify-center rounded-xl bg-[#69c7c7] px-5 py-3 text-sm font-semibold text-gray-950 shadow-sm transition hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#69c7c7]/40 disabled:opacity-50 disabled:cursor-not-allowed"
+            <div
+                class="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:justify-between"
+            >
+                <p class="font-['Outfit'] text-xs text-[#C4B5FD]/60">
+                    * Al enviar aceptas que te contactemos para responder tu
+                    solicitud.
+                </p>
+
+                <button
+                    id="submit-btn"
+                    type="submit"
+                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-[#D946EF] px-8 py-3 font-['JetBrains_Mono'] text-sm font-bold text-white shadow-[0_0_20px_rgba(217,70,239,0.4)] transition-all duration-300 hover:bg-[#c026d3] hover:scale-105 hover:shadow-[0_0_30px_rgba(217,70,239,0.6)] focus:outline-none disabled:cursor-not-allowed disabled:opacity-70"
+                >
+                    <span id="btn-text" class="relative z-10"
+                        >ENVIAR MENSAJE</span
                     >
-                        Enviar mensaje
-                    </button>
-                </div>
-            </form>
-        </div>
+                    <div
+                        class="absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                    >
+                    </div>
+                </button>
+            </div>
+        </form>
     </div>
-</section>
+</div>
 
 <script>
+    // Script del lado del cliente para mejorar la UX al enviar
     const form = document.getElementById("contact-form") as HTMLFormElement;
     const btn = document.getElementById("submit-btn") as HTMLButtonElement;
     const btnText = document.getElementById("btn-text");
 
     if (form && btn && btnText) {
         form.addEventListener("submit", () => {
-            // No hacemos e.preventDefault() porque QUEREMOS que el formulario se envíe al servidor.
-            // Solo modificamos la UI justo antes de que eso pase.
-
-            btn.disabled = true; // Bloquea clics extra
-            btnText.innerText = "Enviando..."; // Feedback visual
-            btn.classList.add("opacity-70", "cursor-wait"); // Estilos de espera
+            // Bloqueamos el botón para evitar doble envío
+            btn.disabled = true;
+            // Cambiamos el texto y añadimos animación de puntos
+            btnText.innerText = "ENVIANDO...";
+            btn.classList.add("cursor-wait", "opacity-80");
         });
     }
 </script>
