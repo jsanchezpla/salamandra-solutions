@@ -1,0 +1,53 @@
+---
+import { features } from "../../../data/featuresData";
+---
+
+<section class="bg-white py-24 px-6 border-b border-[#1F3B34]/5">
+    <div class="max-w-7xl mx-auto">
+        <div class="mb-20">
+            <span
+                class="font-['Inter'] text-xs font-bold uppercase tracking-[0.3em] text-[#3E5C57]"
+            >
+                ¿Por qué elegirnos?
+            </span>
+            <h2
+                class="mt-4 font-['Poppins'] text-4xl font-bold text-[#1F3B34] md:text-5xl max-w-2xl leading-tight"
+            >
+                Construimos la infraestructura digital del <span
+                    class="italic font-light text-[#3E5C57]"
+                    >éxito de tu negocio.</span
+                >
+            </h2>
+        </div>
+
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8"
+        >
+            {
+                features.map((f) => (
+                    <div class="group flex flex-col h-full p-8 rounded-3xl transition-all duration-500 hover:bg-[#F5F5F2]">
+                        <div class="mb-8">
+                            <span class="font-['Inter'] text-[10px] font-bold text-[#3E5C57]/40 tracking-widest block mb-4">
+                                {f.label}
+                            </span>
+                            <div class="text-[#1F3B34] transition-transform duration-500 group-hover:scale-110 group-hover:text-[#3E5C57]">
+                                <f.icon size={32} stroke-width={1.5} />
+                            </div>
+                        </div>
+
+                        <h3 class="font-['Poppins'] text-xl font-bold text-[#1F3B34] mb-4">
+                            {f.title}
+                        </h3>
+                        <p class="font-['Inter'] text-sm leading-relaxed text-[#3E5C57] opacity-80">
+                            {f.description}
+                        </p>
+
+                        <div class="mt-auto pt-8">
+                            <div class="h-[1px] w-8 bg-[#1F3B34]/20 transition-all duration-500 group-hover:w-full group-hover:bg-[#1F3B34]/40" />
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

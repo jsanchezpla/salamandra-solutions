@@ -7,14 +7,24 @@ import HomeProyect from "../components/home/homeProyect/homeProyect.astro";
 import FAQS from "../components/home/faqs/faqs.jsx";
 import Banner from "../components/commons/banners/banner.astro";
 import { StatsSection } from "../components/home/stats/StatsSection";
+import Features from "../components/home/aboutHome/Features.astro";
+import Services from "../components/home/aboutHome/Services.astro";
+import Methodology from "../components/home/aboutHome/Methodology.astro";
+import Customers from "../components/home/aboutHome/Customers.astro";
+import ContactForm from "../components/commons/contact/contactForm.astro";
 ---
 
 <Layout>
   <Header />
   <Slider />
+  <Features />
+  <Services />
   <!-- <AboutHome /> -->
   <HomeProyect />
   <!-- <FAQS client:visible /> -->
+  <Methodology />
+  <Customers />
   <Banner />
+  <ContactForm />
   <StatsSection client:visible />
 </Layout>

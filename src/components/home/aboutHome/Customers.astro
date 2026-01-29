@@ -1,0 +1,62 @@
+---
+import { targets } from "../../../data/tarjetsData";
+---
+
+<section
+    id="clientes"
+    class="bg-[#F5F5F2]/40 py-24 px-6 border-t border-[#1F3B34]/5"
+>
+    <div class="max-w-7xl mx-auto">
+        <div
+            class="mb-20 text-center lg:text-left lg:flex lg:items-end lg:justify-between"
+        >
+            <div class="max-w-2xl">
+                <span
+                    class="font-['Inter'] text-xs font-bold uppercase tracking-[0.3em] text-[#3E5C57]"
+                >
+                    Perfil de Cliente
+                </span>
+                <h2
+                    class="mt-4 font-['Poppins'] text-4xl font-bold text-[#1F3B34] md:text-6xl tracking-tight"
+                >
+                    Soluciones para <span
+                        class="italic font-light text-[#3E5C57]"
+                        >negocios con visión.</span
+                    >
+                </h2>
+            </div>
+            <p
+                class="mt-6 lg:mt-0 font-['Inter'] text-[#3E5C57] max-w-sm lg:pb-2 text-lg leading-relaxed"
+            >
+                Nos convertimos en el motor tecnológico de proyectos que buscan
+                eficiencia, orden e impacto real en su industria.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {
+                targets.map((item) => (
+                    <div class="group relative bg-white p-8 rounded-[2rem] border border-[#1F3B34]/5 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(31,59,52,0.05)] hover:-translate-y-2">
+                        <div class="flex justify-between items-start mb-8">
+                            <div class="text-[#1F3B34] opacity-80 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
+                                <item.icon size={32} stroke-width={1.5} />
+                            </div>
+                            <span class="font-['Inter'] text-[9px] font-bold uppercase tracking-widest text-[#3E5C57]/40 bg-[#F5F5F2] px-2 py-1 rounded">
+                                {item.tag}
+                            </span>
+                        </div>
+
+                        <h3 class="font-['Poppins'] text-xl font-bold text-[#1F3B34] mb-4">
+                            {item.title}
+                        </h3>
+                        <p class="font-['Inter'] text-sm leading-relaxed text-[#3E5C57] opacity-80">
+                            {item.description}
+                        </p>
+
+                        <div class="absolute bottom-6 right-6 h-1.5 w-1.5 rounded-full bg-[#1F3B34]/10 transition-all duration-500 group-hover:scale-[3] group-hover:bg-[#1F3B34]/20" />
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
