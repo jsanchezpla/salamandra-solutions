@@ -3,17 +3,17 @@ import Typewriter from "typewriter-effect";
 
 const TypewriterComponent = () => {
   return (
-    <div className="mt-5 flex items-center justify-center gap-3 font-['JetBrains_Mono'] text-2xl font-bold md:text-4xl">
+    <div className="mt-5 flex items-center justify-center gap-2 font-['Inter'] text-2xl font-medium md:text-4xl tracking-tight">
       
-      {/* Parte Fija: Blanco */}
-      <span className="text-white">Desarrollo</span>
+      {/* Parte Fija: Verde Botella (Elegancia) */}
+      <span className="text-[#1F3B34]">Desarrollo</span>
       
-      {/* Parte Cambiante: Fucsia Eléctrico */}
-      <div className="text-[#D946EF] drop-shadow-[0_0_10px_rgba(217,70,239,0.4)]">
+      {/* Parte Cambiante: Verde Grisáceo (Naturaleza) */}
+      <div className="text-[#3E5C57] font-semibold italic">
         <Typewriter
           options={{
             strings: [
-              "Web",        // He añadido puntos al final para dar firmeza
+              "Web",
               "Frontend",
               "Backend",
               "Mobile",
@@ -21,10 +21,10 @@ const TypewriterComponent = () => {
             ],
             autoStart: true,
             loop: true,
-            deleteSpeed: 50, // Velocidad de borrado más natural
-            delay: 80,       // Velocidad de escritura
-            cursor: "_",     // Cursor estilo terminal
-            cursorClassName: "text-[#D946EF] animate-pulse" // Cursor fucsia parpadeante
+            deleteSpeed: 40, 
+            delay: 70,       
+            cursor: "|",     // Cursor de barra más fino y moderno
+            cursorClassName: "text-[#3E5C57] font-light opacity-50" // Cursor sutil
           }}
         />
       </div>

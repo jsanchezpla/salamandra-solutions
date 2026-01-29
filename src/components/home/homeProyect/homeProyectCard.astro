@@ -1,5 +1,5 @@
 ---
-import { HiArrowRight, HiCode, HiExternalLink } from "react-icons/hi"; // Asegúrate de tener estos iconos
+import { HiCode, HiExternalLink } from "react-icons/hi";
 
 export interface Props {
   titulo: string;
@@ -13,56 +13,57 @@ const { titulo, imagen, tecnologias, demo, codigo } = Astro.props;
 ---
 
 <article
-  class="group flex h-full flex-col overflow-hidden rounded-xl border border-[#D946EF]/20 bg-[#1E1236]/60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:border-[#D946EF]/50 hover:shadow-[0_0_30px_rgba(217,70,239,0.15)]"
+  class="group flex h-full flex-col overflow-hidden rounded-2xl border border-[#1F3B34]/5 bg-white transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(31,59,52,0.08)]"
 >
-  <div
-    class="relative h-116 w-full overflow-hidden border-b border-[#D946EF]/10 bg-white"
-  >
+  <div class="relative h-72 w-full overflow-hidden bg-[#F5F5F2]">
     <div
-      class="absolute inset-0 bg-gradient-to-t from-[#1E1236] to-transparent opacity-60 z-10"
+      class="absolute inset-0 z-10 bg-[#1F3B34]/5 transition-opacity duration-500 group-hover:opacity-0"
     >
     </div>
+
     <img
       src={imagen}
       alt={`Proyecto: ${titulo}`}
-      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+      class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
   </div>
 
-  <div class="flex flex-grow flex-col p-6">
+  <div class="flex flex-grow flex-col p-8">
     <h3
-      class="mb-3 font-['Outfit'] text-xl font-bold text-white transition-colors group-hover:text-[#D946EF]"
+      class="mb-3 font-['Poppins'] text-2xl font-bold text-[#1F3B34] transition-colors group-hover:text-[#3E5C57]"
     >
       {titulo}
     </h3>
 
-    <div class="mb-6 flex flex-wrap gap-2">
+    <div class="mb-8 flex flex-wrap gap-2">
       {
         tecnologias.map((tech) => (
-          <span class="rounded bg-[#D946EF]/10 px-2 py-1 font-['JetBrains_Mono'] text-[10px] font-medium uppercase tracking-wide text-[#D946EF] border border-[#D946EF]/20">
+          <span class="rounded-full bg-[#F5F5F2] px-3 py-1 font-['Inter'] text-[10px] font-bold uppercase tracking-widest text-[#3E5C57] border border-[#3E5C57]/5">
             {tech}
           </span>
         ))
       }
     </div>
 
-    <div class="mt-auto flex gap-3 pt-4 border-t border-[#D946EF]/10">
+    <div class="mt-auto flex gap-4 pt-6 border-t border-[#F5F5F2]">
       <a
         href={demo}
         target="_blank"
         rel="noopener noreferrer"
-        class="flex flex-1 items-center justify-center gap-2 rounded bg-[#D946EF] py-2 font-['JetBrains_Mono'] text-xs font-bold text-white transition-all hover:bg-[#b026c4] hover:shadow-lg hover:shadow-[#D946EF]/25"
+        class="flex flex-1 items-center justify-center gap-2 rounded-xl bg-[#1F3B34] py-3 font-['Inter'] text-xs font-bold text-white transition-all hover:bg-[#3E5C57] hover:shadow-lg hover:shadow-[#1F3B34]/20"
       >
-        <HiExternalLink size={16} /> DEMO
+        <HiExternalLink size={18} />
+        <span>LIVE DEMO</span>
       </a>
 
       <a
         href={codigo}
         target="_blank"
         rel="noopener noreferrer"
-        class="flex flex-1 items-center justify-center gap-2 rounded border border-[#D946EF]/50 bg-transparent py-2 font-['JetBrains_Mono'] text-xs font-bold text-[#D946EF] transition-all hover:border-[#D946EF] hover:bg-[#D946EF]/10 hover:text-white"
+        class="flex items-center justify-center gap-2 rounded-xl border border-[#1F3B34]/10 bg-transparent px-5 py-3 font-['Inter'] text-xs font-bold text-[#1F3B34] transition-all hover:border-[#1F3B34] hover:bg-[#1F3B34]/5"
+        title="Ver Código"
       >
-        <HiCode size={16} /> CÓDIGO
+        <HiCode size={20} />
       </a>
     </div>
   </div>

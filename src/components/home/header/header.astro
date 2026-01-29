@@ -1,20 +1,20 @@
 ---
 import SocialIcons from "../../commons/socialIcons/socialIcons.jsx";
 import TypeEfect from "../header/typeEfect.jsx";
-import { HiChevronDown } from "react-icons/hi"; // Asegúrate de tener react-icons instalada
+import { HiChevronDown } from "react-icons/hi";
 ---
 
 <header
-  class="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-[#0F0720]"
+  class="relative flex h-screen w-full flex-col items-center justify-center overflow-hidden bg-white"
 >
   <div class="absolute inset-0 z-0">
     <div
-      class="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
+      class="absolute inset-0 bg-[linear-gradient(to_right,#3E5C5715_1px,transparent_1px),linear-gradient(to_bottom,#3E5C5715_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"
     >
     </div>
 
     <div
-      class="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-[#D946EF] opacity-20 blur-[100px]"
+      class="absolute left-0 right-0 top-1/4 -z-10 m-auto h-[400px] w-[600px] rounded-full bg-[#F5F5F2] opacity-60 blur-[120px]"
     >
     </div>
   </div>
@@ -23,35 +23,34 @@ import { HiChevronDown } from "react-icons/hi"; // Asegúrate de tener react-ico
     class="relative z-10 flex flex-col items-center justify-center px-4 text-center"
   >
     <h1
-      class="mb-6 font-['Outfit'] text-5xl font-extrabold tracking-tight text-white md:text-7xl lg:text-8xl"
+      class="mb-6 font-['Poppins'] text-6xl font-extrabold tracking-tight text-[#1F3B34] md:text-8xl lg:text-9xl"
     >
       Salamandra
-      <span
-        class="text-transparent bg-clip-text bg-gradient-to-r from-[#D946EF] to-[#A21CAF]"
+      <span class="block md:inline text-[#3E5C57] font-light italic"
         >Solutions</span
       >
     </h1>
 
-    <div class="font-['JetBrains_Mono'] text-lg text-[#C4B5FD] md:text-2xl">
+    <div class="font-['Inter'] text-lg font-medium text-[#1F3B34] md:text-2xl">
       <TypeEfect client:visible />
     </div>
 
     <p
-      class="mt-6 max-w-2xl font-['Outfit'] text-lg font-light leading-relaxed text-[#C4B5FD]/80 md:text-xl"
+      class="mt-8 max-w-2xl font-['Inter'] text-lg font-normal leading-relaxed text-[#3E5C57] md:text-xl"
     >
-      Transformamos ideas complejas en software de alto rendimiento. Desarrollo
-      web, aplicaciones y soluciones digitales a medida.
+      Transformamos ideas complejas en software de alto rendimiento.
     </p>
 
-    <div class="mt-8 scale-110">
+    <div class="mt-10 opacity-80 transition-opacity hover:opacity-100">
       <SocialIcons client:visible />
     </div>
   </main>
+
   <a
     href="#projects"
-    class="mt-10 animate-bounce cursor-pointer text-[#D946EF] transition-colors hover:text-white"
+    class="absolute bottom-10 animate-bounce cursor-pointer text-[#1F3B34] transition-colors hover:text-[#3E5C57]"
     aria-label="Ir a proyectos"
   >
-    <HiChevronDown size={40} />
+    <HiChevronDown size={45} />
   </a>
 </header>

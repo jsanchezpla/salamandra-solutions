@@ -14,41 +14,42 @@ const links = [
   <input id="menu-toggle" type="checkbox" class="peer hidden md:hidden" />
 
   <nav
-    class="fixed left-0 top-0 z-50 w-full border-b border-[#D946EF]/20 bg-black/80 backdrop-blur-md transition-all duration-300"
+    class="fixed left-0 top-0 z-50 w-full border-b border-[#1F3B34]/5 bg-white/80 backdrop-blur-md transition-all duration-300"
   >
     <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
       <a href="/" class="flex items-center group">
         <h3
-          class="font-['Outfit'] text-2xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-[#D946EF] md:text-3xl"
+          class="font-['Poppins'] text-xl font-bold tracking-tighter text-[#1F3B34] md:text-2xl transition-all duration-300"
         >
-          SALAMANDRA <span class="text-[#D946EF]">SOLUTIONS</span>
+          SALAMANDRA <span class="font-light italic text-[#3E5C57]"
+            >Solutions</span
+          >
         </h3>
       </a>
 
-      <ul id="navbar-links" class="hidden items-center space-x-8 md:flex">
+      <ul id="navbar-links" class="hidden items-center space-x-10 md:flex">
         {
           links.map((link) => (
             <li>
               <a
                 href={link.href}
-                class="font-['JetBrains_Mono'] text-sm font-medium text-gray-300 transition-all duration-300 hover:text-[#D946EF] hover:tracking-wide"
+                class="nav-link font-['Inter'] text-sm font-medium text-[#3E5C57] transition-all duration-300 hover:text-[#1F3B34] tracking-wide"
               >
-                // {link.name}
+                {link.name}
               </a>
             </li>
           ))
         }
 
-        <li class="flex items-center gap-4 border-l border-[#D946EF]/30 pl-6">
+        <li class="flex items-center gap-5 border-l border-[#1F3B34]/10 pl-8">
           <a
             href="https://www.linkedin.com/company/salamandraproducciones/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
+            class="text-[#1F3B34]/60 transition-all duration-300 hover:text-[#1F3B34] hover:scale-110"
           >
-            <FaLinkedinIn
-              className="h-5 w-5 text-gray-400 transition-colors duration-300 hover:text-[#D946EF] hover:scale-110"
-            />
+            <FaLinkedinIn size={18} />
           </a>
 
           <a
@@ -56,10 +57,9 @@ const links = [
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
+            class="text-[#1F3B34]/60 transition-all duration-300 hover:text-[#1F3B34] hover:scale-110"
           >
-            <FaGithub
-              className="h-5 w-5 text-gray-400 transition-colors duration-300 hover:text-[#D946EF] hover:scale-110"
-            />
+            <FaGithub size={18} />
           </a>
         </li>
       </ul>
@@ -67,10 +67,9 @@ const links = [
       <div class="z-50 flex items-center gap-4 md:hidden">
         <label
           for="menu-toggle"
-          class="cursor-pointer transition-transform active:scale-90"
+          class="cursor-pointer text-[#1F3B34] transition-transform active:scale-90"
         >
-          <FiMenu className="h-8 w-8 text-[#D946EF] peer-checked:hidden" />
-          <FiX className="hidden h-8 w-8 text-[#D946EF] peer-checked:block" />
+          <FiMenu size={32} className="peer-checked:hidden" />
         </label>
       </div>
     </div>
@@ -78,35 +77,32 @@ const links = [
 
   <label
     for="menu-toggle"
-    class="fixed inset-0 z-40 hidden cursor-pointer bg-black/80 backdrop-blur-sm peer-checked:block md:hidden"
+    class="fixed inset-0 z-40 hidden cursor-pointer bg-[#1F3B34]/20 backdrop-blur-sm peer-checked:block md:hidden"
   ></label>
 
   <div
-    class="fixed right-0 top-0 z-50 h-full w-72 transform border-l border-[#D946EF]/20 bg-black transition-transform duration-300 peer-checked:translate-x-0 md:hidden translate-x-full shadow-[-10px_0_30px_-10px_rgba(212,175,55,0.1)]"
+    class="fixed right-0 top-0 z-50 h-full w-72 transform bg-white border-l border-[#1F3B34]/5 transition-transform duration-500 peer-checked:translate-x-0 md:hidden translate-x-full shadow-[-20px_0_40px_rgba(0,0,0,0.05)]"
   >
     <div class="flex justify-end p-6">
-      <label for="menu-toggle" class="cursor-pointer">
-        <FiX
-          className="h-8 w-8 text-gray-400 hover:text-[#D946EF] transition-colors"
-        />
+      <label for="menu-toggle" class="cursor-pointer text-[#1F3B34]">
+        <FiX size={32} />
       </label>
     </div>
 
-    <div class="px-8 mt-4">
+    <div class="px-10 mt-6">
       <h4
-        class="font-['Montserrat'] text-xs font-bold text-[#D946EF] uppercase tracking-widest mb-8 border-b border-[#D946EF]/20 pb-4"
+        class="font-['Inter'] text-[10px] font-bold text-[#3E5C57]/40 uppercase tracking-[0.2em] mb-10 border-b border-[#1F3B34]/5 pb-4"
       >
         Navegación
       </h4>
-      <ul id="navbar-links-mobile" class="flex flex-col space-y-6">
+      <ul id="navbar-links-mobile" class="flex flex-col space-y-8">
         {
           links.map((link) => (
             <li>
               <a
                 href={link.href}
-                class="font-['JetBrains_Mono'] text-xl font-medium text-white transition-colors duration-300 hover:text-[#D946EF] flex items-center gap-2 group"
+                class="nav-link-mobile font-['Poppins'] text-2xl font-semibold text-[#1F3B34] transition-all duration-300 hover:text-[#3E5C57] flex items-center gap-4 group"
               >
-                <span class="text-[#D946EF] opacity-0 group-hover:opacity-100 transition-opacity text-sm" />{" "}
                 {link.name}
               </a>
             </li>
@@ -115,10 +111,16 @@ const links = [
       </ul>
     </div>
 
-    <div class="absolute bottom-10 w-full px-8">
-      <div class="flex gap-6 justify-center border-t border-[#D946EF]/20 pt-6">
-        <FaLinkedinIn className="h-6 w-6 text-gray-500 hover:text-[#D946EF]" />
-        <FaGithub className="h-6 w-6 text-gray-500 hover:text-[#D946EF]" />
+    <div class="absolute bottom-12 w-full px-10">
+      <div class="flex gap-8 justify-center border-t border-[#1F3B34]/5 pt-8">
+        <FaLinkedinIn
+          size={24}
+          className="text-[#3E5C57]/40 hover:text-[#1F3B34] transition-colors"
+        />
+        <FaGithub
+          size={24}
+          className="text-[#3E5C57]/40 hover:text-[#1F3B34] transition-colors"
+        />
       </div>
     </div>
   </div>
@@ -128,40 +130,44 @@ const links = [
   (function () {
     function markActiveLinks() {
       const currentPath = window.location.pathname.replace(/\/$/, "") || "/";
-      const desktopLinks = Array.from(
-        document.querySelectorAll("#navbar-links .nav-link"),
-      );
-      const mobileLinks = Array.from(
-        document.querySelectorAll("#navbar-links-mobile .nav-link-mobile"),
+      const desktopLinks = document.querySelectorAll("#navbar-links .nav-link");
+      const mobileLinks = document.querySelectorAll(
+        "#navbar-links-mobile .nav-link-mobile",
       );
 
       const allLinks = [...desktopLinks, ...mobileLinks];
 
       allLinks.forEach((link) => {
         const hrefAttr = link.getAttribute("href");
-        const href = hrefAttr?.replace(/\/$/, "") || "" || "/";
+        const href = hrefAttr?.replace(/\/$/, "") || "/";
 
         if (href === currentPath) {
-          link.classList.add("text-[#7d2dac]", "font-extrabold");
-          link.classList.remove("text-white");
+          // Estilos para link ACTIVO (Verde Botella y peso fuerte)
+          link.classList.add(
+            "text-[#1F3B34]",
+            "font-bold",
+            "underline",
+            "underline-offset-8",
+            "decoration-[#1F3B34]/20",
+          );
+          link.classList.remove("text-[#3E5C57]");
         } else {
-          link.classList.remove("text-[#7d2dac]", "font-extrabold");
-          if (!link.classList.contains("hover:text-[#7d2dac]")) {
-            link.classList.add("text-white");
-          }
+          // Estilos para link INACTIVO (Verde Grisáceo)
+          link.classList.remove(
+            "text-[#1F3B34]",
+            "font-bold",
+            "underline",
+            "underline-offset-8",
+          );
+          link.classList.add("text-[#3E5C57]");
         }
       });
     }
 
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", markActiveLinks);
-    } else {
-      markActiveLinks();
-    }
-
-    window.addEventListener("popstate", markActiveLinks);
+    // Ejecución en diferentes eventos de carga
+    document.addEventListener("DOMContentLoaded", markActiveLinks);
     document.addEventListener("astro:page-load", markActiveLinks);
     document.addEventListener("astro:after-swap", markActiveLinks);
-    window.addEventListener("load", () => setTimeout(markActiveLinks, 50));
+    window.addEventListener("load", markActiveLinks);
   })();
 </script>

@@ -7,140 +7,96 @@ html {
 
 @theme {
   /* TUS NUEVAS FUENTES */
-  --font-outfit: "Outfit", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  --font-poppins: "Poppins", sans-serif;
+  --font-inter: "Inter", sans-serif;
 
-  /* PALETA CYBER-MAGIC (Violeta Profundo + Fucsia) */
-  --color-bg-body: #0F0720;   /* Fondo Violeta Noche */
-  --color-bg-card: #1E1236;   /* Fondo Tarjetas un poco más claro */
+  /* PALETA "REFINED NATURE" (Verde Botella + Beige + Blanco) */
+  --color-bg-body: #FFFFFF;    /* Fondo Limpio */
+  --color-bg-card: #F5F5F2;    /* Fondo Secundario/Beige */
   
-  --color-magic: #D946EF;       /* Fucsia Principal */
-  --color-magic-dim: #A21CAF;   /* Fucsia Oscuro (Bordes) */
-  --color-magic-glow: #F0ABFC;  /* Fucsia Claro (Textos brillantes) */
+  --color-primary: #1F3B34;    /* Verde Botella (Estabilidad) */
+  --color-secondary: #3E5C57;  /* Verde Grisáceo (Detalles) */
+  --color-accent: #1F3B34;     /* Mantendremos el verde para énfasis */
 
-  --color-text-main: #FFFFFF;
-  --color-text-muted: #C4B5FD;  /* Violeta Lavanda suave */
+  --color-text-main: #1F3B34;  /* Texto oscuro sobre blanco */
+  --color-text-muted: #3E5C57; /* Texto secundario */
 }
 
 /* BASE */
 body {
     background-color: var(--color-bg-body);
     color: var(--color-text-main);
-    font-family: var(--font-outfit); /* Outfit para todo el texto general */
-    /* Un degradado sutil en el fondo para dar profundidad */
-    background-image: radial-gradient(circle at 50% 0%, #2e1065 0%, #0f0720 60%);
+    font-family: var(--font-inter); /* Inter para el cuerpo de texto */
+    /* Eliminamos el degradado violeta por uno mucho más sutil y limpio */
+    background-image: radial-gradient(circle at 50% 0%, #f5f5f2 0%, #ffffff 70%);
 }
 
-/* --- CLASES PRO PARA ESTA COMBINACIÓN --- */
+/* --- CLASES REFINADAS --- */
 
-/* 1. Títulos "Outfit" (Modernos y Gorditos) */
-.title-cyber {
-    font-family: var(--font-outfit);
-    font-weight: 800; /* Outfit queda genial en ExtraBold */
-    letter-spacing: -0.02em; /* Un pelín juntas para que se vea compacto */
-    color: white;
-}
-
-/* 2. Detalles "JetBrains" (Técnicos) */
-.mono-label {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: var(--color-magic);
-    letter-spacing: 0.05em; /* Separadas para leer bien el código */
-}
-
-/* 3. Botones (Fusión) */
-.btn-cyber {
-    font-family: var(--font-mono); /* Usamos la mono en botones para toque tech */
+/* 1. Títulos "Poppins" (Elegantes y Profesionales) */
+.title-elegant {
+    font-family: var(--font-poppins);
     font-weight: 700;
-    background: transparent;
-    color: white;
-    border: 1px solid var(--color-magic);
-    box-shadow: 0 0 10px rgba(217, 70, 239, 0.1); /* Brillo suave */
-    @apply px-6 py-2.5 rounded-lg transition-all duration-300;
+    letter-spacing: -0.01em;
+    color: var(--color-primary);
 }
 
-.btn-cyber:hover {
-    background: var(--color-magic);
-    color: white;
-    box-shadow: 0 0 25px rgba(217, 70, 239, 0.6); /* Súper brillo al hover */
-    transform: translateY(-2px);
+/* 2. Detalles "Inter" (Legibilidad Máxima) */
+.text-label {
+    font-family: var(--font-inter);
+    font-size: 0.85rem;
+    color: var(--color-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
-.primary {
-  color: #7836cf;
+/* 3. Botones (Sólidos y Confiables) */
+.btn-primary {
+    font-family: var(--font-poppins);
+    font-weight: 600;
+    background: var(--color-primary);
+    color: white;
+    @apply px-6 py-2.5 rounded-lg transition-all duration-300 shadow-sm;
 }
-.secondary {
-  color: #512092;
+
+.btn-primary:hover {
+    background: var(--color-secondary);
+    box-shadow: 0 10px 15px -3px rgba(31, 59, 52, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Actualización de las antiguas clases de color */
+.primary, .text-primary {
+  color: var(--color-primary);
 }
 .bg-primary {
-  background-color: #7836cf;
+  background-color: var(--color-primary);
+}
+.secondary, .text-secondary {
+  color: var(--color-secondary);
 }
 .bg-secondary {
-  background-color: #512092;
-}
-.text-primary {
-  color: #7836cf;
+  background-color: var(--color-bg-card);
 }
 
-/* reglas hover (usar estas clases directamente) */
-.hover-text-secondary:hover {
-  color: #7836cf;
-}
-.hover-bg-secondary:hover {
-  background-color: #7836cf;
-}
-.hover\:bg-secondary:hover {
-  background-color: #512092;
-}
-.hover\:text-secondary:hover {
-  color: #512092;
-}
-
+/* Eliminamos sombras de colores neón por sombras suaves naturales */
 .text-shadow {
-  text-shadow: 2px 2px 0 #620deb;
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.05);
 }
 
-.text-shadow-cyan {
-  text-shadow: 2px 2px 0 #0debd8;
+.text-shadow-elegant {
+  text-shadow: 2px 2px 4px rgba(31, 59, 52, 0.1);
 }
 
-/* estilos del home */
+/* --- ANIMACIONES SUAVES --- */
 
-@keyframes gradientMove {
-  0% {
-    transform: translateX(0) translateY(0);
-  }
-  50% {
-    transform: translateX(-250px) translateY(120px);
-  }
-  100% {
-    transform: translateX(0) translateY(0);
-  }
+@keyframes softFade {
+  0% { opacity: 0.8; transform: translateY(0); }
+  100% { opacity: 1; transform: translateY(-5px); }
 }
 
-@keyframes gradientMove2 {
-  0% {
-    transform: translateX(0) translateY(0);
-  }
-  50% {
-    transform: translateX(250px) translateY(-120px);
-  }
-  100% {
-    transform: translateX(0) translateY(0);
-  }
+.animate-soft {
+  animation: softFade 3s ease-in-out infinite alternate;
 }
-
-.animate-gradientMove {
-  animation: gradientMove 8s ease-in-out infinite alternate;
-}
-
-.animate-gradientMove2 {
-  animation: gradientMove2 8s ease-in-out infinite alternate;
-}
-
-.text-shadow {
-  text-shadow: 2px 2px 0 #6d0deb;
-}
-
 

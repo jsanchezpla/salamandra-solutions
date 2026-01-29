@@ -5,23 +5,40 @@ import Footer from "../components/commons/footer/footer.astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@300;400;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap"
       rel="stylesheet"
     />
+
     <meta name="generator" content={Astro.generator} />
     <title>Salamandra Solutions</title>
   </head>
-  <body class="bg-gray-950 text-white">
+
+  <body class="bg-white text-[#1F3B34] font-['Inter'] antialiased">
     <Navbar />
-    <slot />
+    <main>
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
+
+<style is:global>
+  /* Aseguramos que los títulos siempre usen Poppins por defecto */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Poppins", sans-serif;
+  }
+</style>

@@ -14,21 +14,27 @@ const technologies = [
 ];
 ---
 
-<div class="relative overflow-x-hidden px-8 -mt-25 pb-8">
-  <div class="animate-scroll hover:animate-paused flex w-max gap-12 md:gap-20">
+<div
+  class="relative overflow-x-hidden bg-[#F5F5F2]/50 border-y border-[#3E5C57]/5 py-6 mt-0"
+>
+  <div
+    class="animate-scroll hover:animate-paused flex w-max gap-16 md:gap-24 items-center"
+  >
     {
       technologies.concat(technologies, technologies).map((tech) => (
-        <div class="group flex items-center gap-2 transition-all duration-300">
+        <div class="group flex items-center gap-3 transition-all duration-500">
           <img
             src={`/svg/${tech}.svg`}
             alt={tech}
-            class="h-7 w-auto object-contain  transition-transform group-hover:scale-110"
-            width="30"
-            height="30"
+            class="h-8 w-auto object-contain grayscale opacity-60 transition-all duration-500 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110"
+            width="32"
+            height="32"
             loading="lazy"
           />
-          <span class="text-lg font-medium text-white">
-            {tech.charAt(0).toUpperCase() + tech.slice(1)}
+          <span class="font-['Inter'] text-sm font-semibold tracking-widest uppercase text-[#3E5C57]/70 transition-colors duration-500 group-hover:text-[#1F3B34]">
+            {tech === "postgreeSQL"
+              ? "PostgreSQL"
+              : tech.charAt(0).toUpperCase() + tech.slice(1)}
           </span>
         </div>
       ))
@@ -42,16 +48,18 @@ const technologies = [
       transform: translateX(0);
     }
     to {
-      transform: translateX(-50%);
+      transform: translateX(-33.33%);
     }
   }
+
   .animate-scroll {
-    animation: scroll 30s linear infinite;
+    /* Animación un poco más lenta para transmitir calma */
+    animation: scroll 40s linear infinite;
   }
 
   @media (min-width: 768px) {
     .animate-scroll {
-      animation-duration: 30s;
+      animation-duration: 50s;
     }
   }
 </style>
