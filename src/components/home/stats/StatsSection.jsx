@@ -40,9 +40,9 @@ const StatItem = ({ end, suffix = "", label }) => {
 
 export const StatsSection = () => {
   const stats = [
-    { label: "Proyectos Entregados", end: 3, suffix: "+" },
-    { label: "Años de Experiencia", end: 1, suffix: "+" },
-    { label: "Clientes Satisfechos", end: 100, suffix: "%" },
+    { label: "Proyectos Entregados", end: 32, suffix: "+" },
+    { label: "Años de Experiencia", end: 3, suffix: "+" },
+    { label: "Clientes Satisfechos", end: 13, suffix: "+" },
     { label: "Tecnologías", end: 14, suffix: "" },
   ];
 

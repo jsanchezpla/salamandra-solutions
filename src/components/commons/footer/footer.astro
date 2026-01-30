@@ -4,7 +4,7 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class="relative border-t border-[#1F3B34]/5 bg-[#F5F5F2] pt-20 pb-12 text-[#1F3B34]"
+  class="relative border-t border-[#1F3B34]/5 bg-[#F5F5F2] py-10 text-[#1F3B34]"
 >
   <div
     class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-[#1F3B34]/10 to-transparent"
@@ -12,7 +12,7 @@ const currentYear = new Date().getFullYear();
   </div>
 
   <div
-    class="container mx-auto grid grid-cols-1 gap-16 px-6 lg:grid-cols-3 lg:px-20 items-start"
+    class="container mx-auto flex flex-col md:flex-row justify-between items-start gap-12"
   >
     <div
       class="flex flex-col items-center lg:items-start text-center lg:text-left"
@@ -29,29 +29,12 @@ const currentYear = new Date().getFullYear();
       <p
         class="max-w-xs font-['Inter'] text-sm font-normal leading-relaxed text-[#3E5C57]/80"
       >
-        Desarrollo de software con enfoque artesanal. Transformamos la
-        complejidad técnica en experiencias digitales elegantes y eficientes.
+        Transformamos la complejidad técnica en experiencias digitales elegantes
+        y eficientes.
       </p>
     </div>
 
-    <nav class="flex justify-center w-full">
-      <ul class="flex flex-col items-center space-y-4 lg:items-start">
-        <li>
-          <a href="/" class="nav-link-footer">Inicio</a>
-        </li>
-        <li>
-          <a href="/proyectos" class="nav-link-footer">Proyectos</a>
-        </li>
-        <li>
-          <a href="/about" class="nav-link-footer">Sobre nosotros</a>
-        </li>
-        <li>
-          <a href="/contact" class="nav-link-footer">Contacto</a>
-        </li>
-      </ul>
-    </nav>
-
-    <div class="flex flex-col items-center lg:items-end space-y-8">
+    <div class="flex flex-col items-center lg:items-end space-y-4">
       <div class="opacity-80 transition-opacity hover:opacity-100">
         <SocialIcons client:visible />
       </div>
@@ -72,7 +55,7 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
 
-  <div class="container mx-auto mt-16 px-6 lg:px-20">
+  <div class="container mx-auto px-6 lg:px-20">
     <div
       class="border-t border-[#1F3B34]/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-[#3E5C57]/40"
     >

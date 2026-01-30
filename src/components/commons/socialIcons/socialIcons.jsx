@@ -3,7 +3,7 @@ import { FaLinkedinIn, FaGithub } from "react-icons/fa6";
 
 const SocialIcons = () => {
   return (
-    <div className="my-5 flex items-center justify-center gap-6">
+    <div className="flex items-center justify-center gap-6">
       <a
         href="https://es.linkedin.com/company/salamandraproducciones"
         target="_blank"

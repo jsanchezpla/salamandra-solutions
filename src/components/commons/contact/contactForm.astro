@@ -8,18 +8,18 @@ const success = Astro.url.searchParams.get("sent") === "1";
 const error = Astro.url.searchParams.get("error") === "1";
 ---
 
-<div class="w-full px-50 mb-30">
+<div class="w-full px-50 my-30">
     <div
-        class="relative overflow-hidden rounded-[2rem] border border-[#1F3B34]/5 bg-[#F5F5F2] p-8 shadow-[0_30px_60px_rgba(31,59,52,0.05)] md:p-12"
+        class="relative overflow-hidden rounded-[2rem] border border-[#1F3B34]/5 bg-[#1F3B34] p-8 shadow-[0_30px_60px_rgba(31,59,52,0.05)] md:p-12"
     >
         <header class="mb-10 text-center md:text-left">
             <h2
-                class="font-['Poppins'] text-3xl font-bold tracking-tight text-[#1F3B34] md:text-4xl"
+                class="font-['Poppins'] text-3xl font-bold tracking-tight text-[#F5F5F2] md:text-4xl"
             >
-                {title}<span class="text-[#3E5C57] font-light">.</span>
+                {title}<span class="text-[white] font-light">.</span>
             </h2>
             <p
-                class="mt-3 font-['Inter'] text-base font-normal leading-relaxed text-[#3E5C57]/70 md:text-lg"
+                class="mt-3 font-['Inter'] text-base font-normal leading-relaxed text-[white]/70 md:text-lg"
             >
                 {subtitle}
             </p>
@@ -60,9 +60,9 @@ const error = Astro.url.searchParams.get("error") === "1";
                 <div>
                     <label
                         for="name"
-                        class="mb-2 block font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[#3E5C57]/60"
+                        class="mb-2 block font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[white]"
                     >
-                        Tu nombre o empresa
+                        Tu nombre
                     </label>
                     <input
                         id="name"
@@ -70,15 +70,35 @@ const error = Astro.url.searchParams.get("error") === "1";
                         type="text"
                         required
                         autocomplete="name"
-                        placeholder="Ej. Jorge Sánchez"
-                        class="w-full rounded-xl border border-[#1F3B34]/10 bg-white px-5 py-4 font-['Inter'] text-sm text-[#1F3B34] placeholder:text-[#3E5C57]/30 focus:border-[#1F3B34] focus:outline-none focus:ring-1 focus:ring-[#1F3B34] transition-all duration-300 shadow-sm"
+                        placeholder="Nombre y apellidos"
+                        class="w-full rounded-xl border border-[#1F3B34]/10 bg-white px-5 py-4 font-['Inter'] text-sm text-[#1F3B34] placeholder:text-[#1F3B34]/50 focus:border-[#1F3B34] focus:outline-none focus:ring-1 focus:ring-[#1F3B34] transition-all duration-300 shadow-sm"
                     />
                 </div>
 
                 <div>
                     <label
+                        for="company"
+                        class="mb-2 block font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[white]"
+                    >
+                        Tu empresa
+                    </label>
+                    <input
+                        id="company"
+                        name="company"
+                        type="text"
+                        required
+                        autocomplete="company"
+                        placeholder="Nombre de tu empresa"
+                        class="w-full rounded-xl border border-[#1F3B34]/10 bg-white px-5 py-4 font-['Inter'] text-sm text-[#1F3B34] placeholder:text-[#1F3B34]/50 focus:border-[#1F3B34] focus:outline-none focus:ring-1 focus:ring-[#1F3B34] transition-all duration-300 shadow-sm"
+                    />
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                <div>
+                    <label
                         for="email"
-                        class="mb-2 block font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[#3E5C57]/60"
+                        class="mb-2 block font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[white]"
                     >
                         Correo electrónico
                     </label>
@@ -88,8 +108,25 @@ const error = Astro.url.searchParams.get("error") === "1";
                         type="email"
                         required
                         autocomplete="email"
-                        placeholder="nombre@ejemplo.com"
-                        class="w-full rounded-xl border border-[#1F3B34]/10 bg-white px-5 py-4 font-['Inter'] text-sm text-[#1F3B34] placeholder:text-[#3E5C57]/30 focus:border-[#1F3B34] focus:outline-none focus:ring-1 focus:ring-[#1F3B34] transition-all duration-300 shadow-sm"
+                        placeholder="correo@ejemplo.com"
+                        class="w-full rounded-xl border border-[#1F3B34]/10 bg-white px-5 py-4 font-['Inter'] text-sm text-[#1F3B34] placeholder:text-[#1F3B34]/50 focus:border-[#1F3B34] focus:outline-none focus:ring-1 focus:ring-[#1F3B34] transition-all duration-300 shadow-sm"
+                    />
+                </div>
+                <div>
+                    <label
+                        for="phone"
+                        class="mb-2 block font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[white]"
+                    >
+                        Teléfono
+                    </label>
+                    <input
+                        id="phone"
+                        name="phone"
+                        type="text"
+                        required
+                        autocomplete="phone"
+                        placeholder="Tu teléfono de contacto"
+                        class="w-full rounded-xl border border-[#1F3B34]/10 bg-white px-5 py-4 font-['Inter'] text-sm text-[#1F3B34] placeholder:text-[#1F3B34]/50 focus:border-[#1F3B34] focus:outline-none focus:ring-1 focus:ring-[#1F3B34] transition-all duration-300 shadow-sm"
                     />
                 </div>
             </div>
@@ -97,7 +134,7 @@ const error = Astro.url.searchParams.get("error") === "1";
             <div>
                 <label
                     for="message"
-                    class="mb-2 block font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[#3E5C57]/60"
+                    class="mb-2 block font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[white]"
                 >
                     Cuéntanos tu idea
                 </label>
@@ -107,7 +144,7 @@ const error = Astro.url.searchParams.get("error") === "1";
                     required
                     rows="4"
                     placeholder="Describe brevemente tu proyecto y objetivos..."
-                    class="w-full resize-none rounded-xl border border-[#1F3B34]/10 bg-white px-5 py-4 font-['Inter'] text-sm text-[#1F3B34] placeholder:text-[#3E5C57]/30 focus:border-[#1F3B34] focus:outline-none focus:ring-1 focus:ring-[#1F3B34] transition-all duration-300 shadow-sm"
+                    class="w-full resize-none rounded-xl border border-[#1F3B34]/10 bg-white px-5 py-4 font-['Inter'] text-sm text-[#1F3B34] placeholder:text-[#1F3B34]/50 focus:border-[#1F3B34] focus:outline-none focus:ring-1 focus:ring-[#1F3B34] transition-all duration-300 shadow-sm"
                 ></textarea>
             </div>
 
@@ -117,7 +154,7 @@ const error = Astro.url.searchParams.get("error") === "1";
                 <button
                     id="submit-btn"
                     type="submit"
-                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[#1F3B34] px-10 py-4 font-['Poppins'] text-sm font-bold text-white transition-all duration-300 hover:bg-[#3E5C57] hover:shadow-xl hover:shadow-[#1F3B34]/20 active:scale-95 disabled:opacity-50"
+                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[white] px-10 py-4 font-['Poppins'] text-sm font-bold text-#1F3B34 transition-all duration-300 hover:bg-[white] hover:shadow-xl hover:shadow-[#1F3B34]/20 active:scale-95 disabled:opacity-50"
                 >
                     <span id="btn-text" class="relative z-10 tracking-[0.1em]"
                         >ENVIAR SOLICITUD</span

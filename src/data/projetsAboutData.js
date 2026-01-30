@@ -1,44 +1,28 @@
-import AsesoriaRetorika from "../assets/img-projects/retorika.png";
-import TalentiaApp from "../assets/img-projects/futurosTalentos.png";
-import TalentiaCRM from "../assets/img-projects/talentia.png";
+import retorika from "../assets/img-projects/retorika.png";
+import talentia from "../assets/img-projects/talentia.png";
+import v30energy from "../assets/img-projects/v30energy.png";
+import lacuriosidaddelviajero from "../assets/img-projects/lacuriosidaddelviajero.png";
 
 export const proyectos = [
   {
-    titulo: "Aplicación web para Futuros Talentos",
-    descripcion: "Se trata de una aplicación web donde los padres pueden apuntar a sus hijos a las extraescolares del colegio y ver información sobre ello.",
-    imagen: TalentiaApp.src,
-    tecnologias: ["React Native", "Express", "PostgreeSQL", "Node"],
-    demo: "https://proyecto-final-rodriguez-sable.vercel.app/",
-    codigo: "https://github.com/Lautaro-R-collins/ProyectoFinal-Rodriguez.git",
+    titulo: "Futuros Talentos",
+    imagen: talentia.src,
+    tecnologias: ["React Native", "Express", "JavaScript", "Node", "React", "PostgreeSQL"],
   },
-  // {
-  //   titulo: "Página web de Fututros Talentos",
-  //   imagen: TalentiaApp.src,
-  //   tecnologias: ["Wordpress", "Elementor"],
-  //   demo: "https://back-express-todo.onrender.com",
-  //   codigo: "https://github.com/Lautaro-R-collins/Back-express-todo.git",
-  // },
   {
-    titulo: "ERP para Talentia",
-    descripcion: "Es una aplicación web desde la que pueden gestionar la base de datos de su otra aplicación desde con una interfaz y herramientas amigables",
+    titulo: "V30 Energy",
     imagen:
-      TalentiaCRM.src,
-    tecnologias: ["React", "Node", "Express", "PostgreeSQL"],
-    demo: "https://c21-05-ft-node-react-mirror-frontend-64qbwssi2-muyvisual.vercel.app/",
-    codigo: "https://github.com/No-Country-simulation/c21-05-ft-node-react",
+      v30energy.src,
+    tecnologias: ["Wordpress", "Elementor", "PHP", "JavaScript"],
   },
   {
     titulo: "Asesoría Retorika",
-    imagen: AsesoriaRetorika.src,
-    tecnologias: ["Wordpress", "PHP", "JavaScript", "Express", "Node"],
-    demo: "https://front-react-todo.onrender.com",
-    codigo: "https://github.com/Lautaro-R-collins/Front-react-todo",
+    imagen: retorika.src,
+    tecnologias: ["Wordpress", "PHP", "JavaScript", "Elementor", "Express", "Node", "React", "PostgreeSQL"],
   },
-  // {
-  //   titulo: "ERP para Retorika",
-  //   imagen: AsesoriaRetorika.src,
-  //   tecnologias: ["Express", "Node.js", "PostgreeSQL", "React"],
-  //   demo: "https://back-express-todo.onrender.com",
-  //   codigo: "https://github.com/Lautaro-R-collins/Back-express-todo.git",
-  // },
+  {
+    titulo: "La Curiosidad del Viajero",
+    imagen: lacuriosidaddelviajero.src,
+    tecnologias: ["Wordpress", "PHP", "JavaScript", "Elementor"],
+  },
 ];
