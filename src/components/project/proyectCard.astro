@@ -1,91 +1,125 @@
 ---
-import { HiArrowRight, HiCode, HiExternalLink } from "react-icons/hi";
+import { HiChevronDown } from "react-icons/hi2";
 
 export interface Props {
   titulo: string;
   descripcion: string;
   imagen: string;
   tecnologias: string[];
-  demo: string;
-  codigo: string;
   categoria?: string;
   index: number;
 }
 
-const {
-  titulo,
-  descripcion,
-  imagen,
-  tecnologias,
-  demo,
-  codigo,
-  categoria,
-  index,
-} = Astro.props;
+const { titulo, descripcion, imagen, tecnologias, categoria, index } =
+  Astro.props;
 ---
 
 <article
   data-index={index}
   data-categoria={categoria ?? ""}
-  class="group relative flex h-full w-full flex-col overflow-hidden rounded-xl border border-[#D946EF]/20 bg-[#1E1236]/80 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-[#D946EF]/50 hover:shadow-[0_0_30px_rgba(217,70,239,0.15)]"
+  class="project-card-wrapper group w-full bg-[#F5F5F2] rounded-[2rem] border border-[#1F3B34]/5 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(31,59,52,0.08)] mb-8 overflow-hidden"
 >
-  <div
-    class="relative h-116 w-full overflow-hidden border-b border-[#D946EF]/10 bg-white"
-  >
+  <div class="flex flex-col md:flex-row items-center p-4 md:p-6 gap-8">
     <div
-      class="absolute inset-0 bg-gradient-to-t from-[#1E1236] to-transparent opacity-60 z-10"
+      class="relative w-full md:w-72 h-48 shrink-0 overflow-hidden rounded-2xl bg-white shadow-sm"
     >
+      <img
+        src={imagen}
+        alt={`Imagen del proyecto ${titulo}`}
+        loading="lazy"
+        class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+      <div
+        class="absolute inset-0 bg-[#1F3B34]/5 opacity-40 group-hover:opacity-0 transition-opacity"
+      >
+      </div>
     </div>
 
-    <img
-      src={imagen}
-      alt={`Imagen del proyecto ${titulo}`}
-      loading="lazy"
-      class="h-full w-full object-contain transition-transform duration-700 group-hover:scale-110"
-    />
+    <div class="flex flex-grow flex-col justify-center">
+      <div>
+        <span
+          class="font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[#3E5C57]/40 mb-1 block"
+        >
+          {categoria || "Proyecto"}
+        </span>
+        <h3
+          class="font-['Poppins'] text-2xl font-bold text-[#1F3B34] leading-tight"
+        >
+          {titulo}
+        </h3>
+      </div>
+
+      <div class="flex flex-wrap gap-2 md:justify-start max-w-md mt-5">
+        {
+          tecnologias.map((tech) => (
+            <span class="rounded-full bg-white px-3 py-1 font-['Inter'] text-[9px] font-bold uppercase tracking-widest text-[#3E5C57] border border-[#1F3B34]/5 shadow-sm">
+              {tech}
+            </span>
+          ))
+        }
+      </div>
+      <div class="flex justify-center">
+        <button
+          class="accordion-trigger mt-16 flex items-center gap-2 font-['Inter'] text-xs font-bold uppercase tracking-widest text-[#1F3B34]/60 hover:text-[#1F3B34] transition-colors self-start"
+        >
+          <span>Detalles del proyecto</span>
+          <HiChevronDown
+            className="transition-transform duration-500 accordion-icon"
+            size={18}
+          />
+        </button>
+      </div>
+    </div>
   </div>
 
-  <div class="flex flex-grow flex-col p-6">
-    <h3
-      class="mb-2 font-['Outfit'] text-xl font-bold text-white transition-colors group-hover:text-[#D946EF]"
-    >
-      {titulo}
-    </h3>
-
-    <div class="mb-4 flex flex-wrap gap-2">
-      {
-        tecnologias.map((tech) => (
-          <span class="rounded border border-[#D946EF]/20 bg-[#D946EF]/5 px-2 py-1 font-['JetBrains_Mono'] text-[10px] font-bold uppercase tracking-wide text-[#D946EF]">
-            {tech}
-          </span>
-        ))
-      }
-    </div>
-
-    <p
-      class="pb-26 font-['Outfit'] text-sm font-light leading-relaxed text-[#C4B5FD] line-clamp-3"
-    >
-      {descripcion}
-    </p>
-
-    <div class="mt-auto flex gap-3 pt-4 border-t border-[#D946EF]/10">
-      <a
-        href={demo}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex flex-1 items-center justify-center gap-2 rounded-lg bg-[#D946EF] py-2.5 font-['JetBrains_Mono'] text-xs font-bold text-white transition-all hover:bg-[#c026d3] hover:shadow-[0_0_15px_rgba(217,70,239,0.4)]"
+  <div
+    class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-#F5F5F2"
+  >
+    <div class="p-8 md:ml-80 border-t border-[#1F3B34]/5">
+      <p
+        class="font-['Inter'] text-base leading-relaxed text-[#3E5C57] max-w-3xl"
       >
-        <HiExternalLink size={16} /> DEMO
-      </a>
-
-      <a
-        href={codigo}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex flex-1 items-center justify-center gap-2 rounded-lg border border-[#D946EF]/50 bg-transparent py-2.5 font-['JetBrains_Mono'] text-xs font-bold text-[#D946EF] transition-all hover:border-[#D946EF] hover:bg-[#D946EF]/10 hover:text-white"
-      >
-        <HiCode size={16} /> CÓDIGO
-      </a>
+        {descripcion}
+      </p>
     </div>
   </div>
 </article>
+
+<script>
+  function setupAccordions() {
+    // Seleccionamos los wrappers
+    const cards = document.querySelectorAll(".project-card-wrapper");
+
+    cards.forEach((card) => {
+      // Forzamos el tipo a HTMLElement para que reconozca .style y .scrollHeight
+      const trigger = card.querySelector(".accordion-trigger") as HTMLElement;
+      const content = card.querySelector(".accordion-content") as HTMLElement;
+      const icon = card.querySelector(".accordion-icon") as HTMLElement;
+
+      // Verificación de seguridad por si acaso alguno no existe
+      if (!trigger || !content) return;
+
+      // Reset inicial
+      content.style.maxHeight = "0px";
+
+      trigger.addEventListener("click", () => {
+        const isOpen = card.getAttribute("data-open") === "true";
+
+        if (isOpen) {
+          content.style.maxHeight = "0px";
+          icon?.classList.remove("rotate-180");
+          card.setAttribute("data-open", "false");
+        } else {
+          // Ahora TypeScript sabe que scrollHeight existe aquí
+          content.style.maxHeight = content.scrollHeight + "px";
+          icon?.classList.add("rotate-180");
+          card.setAttribute("data-open", "true");
+        }
+      });
+    });
+  }
+
+  // Soporte para transiciones de Astro y carga normal
+  document.addEventListener("astro:page-load", setupAccordions);
+  setupAccordions();
+</script>

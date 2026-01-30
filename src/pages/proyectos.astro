@@ -6,84 +6,74 @@ import Banner from "../components/commons/banners/banner.astro";
 import { proyectos } from "../data/projectData.js";
 ---
 
-<Layout title="Proyectos" description="Portafolio de proyectos">
-  <div class="bg-[#0F0720] min-h-screen relative">
+<Layout
+  title="Proyectos | Salamandra Solutions"
+  description="Portafolio de proyectos de alto impacto."
+>
+  <div class="bg-white min-h-screen relative">
     <Hero titulo="Proyectos" />
 
-    <div class="relative z-20 -mt-24 mb-12 flex flex-wrap justify-center px-4">
+    <div class="relative z-30 -mt-16 mb-16 flex justify-center px-4">
       <div
-        class="flex flex-wrap justify-center gap-4 rounded-2xl border border-[#D946EF]/20 bg-[#1E1236]/80 p-2 backdrop-blur-xl shadow-2xl"
+        class="flex flex-wrap justify-center gap-2 rounded-full border border-[#1F3B34]/5 bg-white/80 p-2 backdrop-blur-xl shadow-xl shadow-[#1F3B34]/5"
       >
         <button
-          class="filter-btn group relative px-6 py-2 font-['JetBrains_Mono'] text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-lg border border-[#D946EF] bg-[#D946EF] text-white shadow-[0_0_15px_rgba(217,70,239,0.4)]"
+          class="filter-btn px-8 py-2.5 font-['Inter'] text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 rounded-full border border-transparent"
           data-filter="all"
         >
-          <span class="mr-2 opacity-50 text-white group-hover:opacity-100"
-            >//</span
-          >TODOS
+          TODOS
         </button>
-
         <button
-          class="filter-btn group relative px-6 py-2 font-['JetBrains_Mono'] text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-lg border border-transparent text-[#D946EF] hover:bg-[#D946EF]/10"
+          class="filter-btn px-8 py-2.5 font-['Inter'] text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 rounded-full border border-transparent text-[#3E5C57] hover:bg-[#F5F5F2]"
           data-filter="fullstack"
         >
-          <span class="mr-2 opacity-50 group-hover:opacity-100">//</span>FULL
-          STACK
+          FULL STACK
         </button>
-
         <button
-          class="filter-btn group relative px-6 py-2 font-['JetBrains_Mono'] text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-lg border border-transparent text-[#D946EF] hover:bg-[#D946EF]/10"
+          class="filter-btn px-8 py-2.5 font-['Inter'] text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 rounded-full border border-transparent text-[#3E5C57] hover:bg-[#F5F5F2]"
           data-filter="frontend"
         >
-          <span class="mr-2 opacity-50 group-hover:opacity-100">//</span
-          >FRONTEND
+          FRONTEND
         </button>
-
         <button
-          class="filter-btn group relative px-6 py-2 font-['JetBrains_Mono'] text-sm font-bold uppercase tracking-wider transition-all duration-300 rounded-lg border border-transparent text-[#D946EF] hover:bg-[#D946EF]/10"
+          class="filter-btn px-8 py-2.5 font-['Inter'] text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 rounded-full border border-transparent text-[#3E5C57] hover:bg-[#F5F5F2]"
           data-filter="backend"
         >
-          <span class="mr-2 opacity-50 group-hover:opacity-100">//</span>BACKEND
+          BACKEND
         </button>
       </div>
     </div>
 
     <div
       id="projects-container"
-      class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 pb-20 md:grid-cols-2 lg:grid-cols-3 pt-6"
+      class="mx-auto max-w-7xl px-6 pb-20 pt-6 space-y-8"
     >
       {
         proyectos.map((proyecto, index) => (
-          /* IMPORTANTE: 
-             1. Añadimos la clase "project-card-wrapper" para que el JS la encuentre.
-             2. Usamos data-categoria (en español) para que coincida con tu script.
-             3. Usamos data-index para el control de "Cargar más".
-          */
           <div
-            class="project-card-wrapper transition-all duration-500"
+            class="project-card-wrapper transition-all duration-700"
             data-categoria={proyecto.categoria}
-            data-index={index}
+            style="opacity: 0; transform: translateY(30px); display: none;"
           >
             <ProjectCard
-              index={index}
               titulo={proyecto.titulo}
-              descripcion={proyecto.descripcion}
               imagen={proyecto.imagen}
               tecnologias={proyecto.tecnologias}
-              demo={proyecto.demo}
-              codigo={proyecto.codigo}
+              descripcion={proyecto.descripcion}
+              categoria={proyecto.categoria}
+              index={index}
             />
           </div>
         ))
       }
     </div>
 
-    <div class="flex justify-center pb-20">
+    <div class="flex justify-center pb-24">
       <button
         id="load-more"
-        class="group relative inline-flex items-center gap-2 overflow-hidden rounded-lg border border-[#D946EF]/50 px-8 py-3 font-['JetBrains_Mono'] text-sm font-bold text-[#D946EF] transition-all hover:bg-[#D946EF] hover:text-white hover:shadow-[0_0_20px_rgba(217,70,239,0.4)]"
+        class="hidden group relative items-center gap-3 overflow-hidden rounded-full bg-[#1F3B34] px-12 py-4 font-['Poppins'] text-sm font-bold text-white transition-all hover:bg-[#3E5C57] active:scale-95"
       >
-        CARGAR MÁS PROYECTOS
+        <span class="tracking-widest uppercase">Cargar más proyectos</span>
       </button>
     </div>
 
@@ -93,150 +83,88 @@ import { proyectos } from "../data/projectData.js";
 
 <script is:inline>
   (function () {
-    /* ---------------- CONFIG ---------------- */
-    const INITIAL_VISIBLE = 6; // Mostrar 6 al principio (ajusta si quieres)
+    const INITIAL_VISIBLE = 6;
     let itemsToShow = INITIAL_VISIBLE;
     let activeFilter = "all";
-    let cards = [];
-    let filterButtons = [];
-    let loadMoreBtn = null;
 
-    /* ---------------- HELPERS ---------------- */
-    function queryElements() {
-      // Buscamos por la clase wrapper que añadimos en el HTML
-      cards = Array.from(document.querySelectorAll(".project-card-wrapper"));
-      filterButtons = Array.from(document.querySelectorAll(".filter-btn"));
-      loadMoreBtn = document.getElementById("load-more");
-    }
-
-    // Función visual para marcar el botón activo intercambiando clases de Tailwind
-    function updateButtonStyles(clickedBtn) {
-      filterButtons.forEach((btn) => {
-        // 1. Reseteamos todos a estilo "Ghost" (Transparente)
-        btn.classList.remove(
-          "bg-[#D946EF]",
-          "text-white",
-          "shadow-[0_0_15px_rgba(217,70,239,0.4)]",
-          "border-[#D946EF]",
-        );
-        btn.classList.add(
-          "bg-transparent",
-          "text-[#D946EF]",
-          "border-transparent",
-        );
-
-        // Si el botón es el clickeado, le ponemos estilo "Solid" (Fucsia)
-        if (btn === clickedBtn) {
-          btn.classList.remove(
-            "bg-transparent",
-            "text-[#D946EF]",
-            "border-transparent",
-          );
-          btn.classList.add(
-            "bg-[#D946EF]",
-            "text-white",
-            "shadow-[0_0_15px_rgba(217,70,239,0.4)]",
-            "border-[#D946EF]",
-          );
-        }
-      });
-    }
-
-    function showCard(card) {
-      card.classList.remove("hidden");
-      // Pequeño timeout para permitir la animación de opacidad
-      requestAnimationFrame(() => {
-        card.style.opacity = "1";
-        card.style.transform = "scale(1)";
-        card.style.display = "block"; // Asegurar display block para grid
-      });
-    }
-
-    function hideCard(card) {
-      card.style.opacity = "0";
-      card.style.transform = "scale(0.95)";
-      setTimeout(() => {
-        card.classList.add("hidden");
-        card.style.display = "none"; // Ocultar del flujo
-      }, 300);
-    }
-
-    /* ---------------- LOGICA DE FILTRADO ---------------- */
-    function applyFilter(filter) {
-      activeFilter = filter ?? "all";
-      const normalized = activeFilter.toLowerCase();
-
-      // Filtramos la lista lógica de tarjetas
-      const visibleCards = cards.filter((card) => {
-        const categoria = (card.dataset.categoria ?? "").toLowerCase();
-        return normalized === "all" || categoria === normalized;
-      });
-
-      // 1. Ocultamos TODAS primero
-      cards.forEach((c) => {
-        if (!visibleCards.includes(c)) hideCard(c);
-      });
-
-      // 2. Mostramos solo las que cumplen el filtro Y el límite de items
-      visibleCards.forEach((card, i) => {
-        if (i < itemsToShow) {
-          showCard(card);
-        } else {
-          hideCard(card);
-        }
-      });
-
-      // 3. Gestionar botón "Ver más"
-      if (loadMoreBtn) {
-        if (visibleCards.length > itemsToShow) {
-          loadMoreBtn.style.display = "inline-flex";
-          loadMoreBtn.classList.remove("hidden");
-        } else {
-          loadMoreBtn.style.display = "none";
-          loadMoreBtn.classList.add("hidden");
-        }
-      }
-    }
-
-    /* ---------------- EVENTOS ---------------- */
-    function attachFilterEvents() {
-      if (!filterButtons.length) return;
-
-      filterButtons.forEach((btn) => {
-        btn.onclick = (e) => {
-          e.preventDefault(); // Evitar saltos raros
-          itemsToShow = INITIAL_VISIBLE; // Resetear contador al cambiar filtro
-          const filter = btn.dataset.filter || "all";
-
-          updateButtonStyles(btn); // Actualizar colores
-          applyFilter(filter); // Aplicar lógica
-        };
-      });
-    }
-
-    function attachLoadMore() {
-      if (!loadMoreBtn) return;
-      loadMoreBtn.onclick = () => {
-        itemsToShow += INITIAL_VISIBLE;
-        applyFilter(activeFilter);
+    function getElements() {
+      return {
+        cards: Array.from(document.querySelectorAll(".project-card-wrapper")),
+        buttons: Array.from(document.querySelectorAll(".filter-btn")),
+        loadMore: document.getElementById("load-more"),
       };
     }
 
-    /* ---------------- INIT ---------------- */
-    function init() {
-      queryElements();
-      attachFilterEvents();
-      attachLoadMore();
+    function updateUI() {
+      const { cards, buttons, loadMore } = getElements();
+      const normalizedFilter = activeFilter.toLowerCase();
 
-      // Estado inicial: Marcamos "Todos" como activo
-      const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
-      if (allBtn) updateButtonStyles(allBtn);
+      // 1. Estilo de botones
+      buttons.forEach((btn) => {
+        const isSelected = btn.dataset.filter === activeFilter;
+        btn.classList.toggle("bg-[#1F3B34]", isSelected);
+        btn.classList.toggle("text-white", isSelected);
+        btn.classList.toggle("shadow-lg", isSelected);
+        if (!isSelected) {
+          btn.classList.add("text-[#3E5C57]", "bg-transparent");
+        } else {
+          btn.classList.remove("text-[#3E5C57]", "bg-transparent");
+        }
+      });
 
-      applyFilter("all");
+      // 2. Filtrado lógico
+      const filtered = cards.filter(
+        (card) =>
+          activeFilter === "all" ||
+          card.dataset.categoria?.toLowerCase() === normalizedFilter,
+      );
+
+      // 3. Mostrar/Ocultar con animación
+      cards.forEach((card) => {
+        const indexInFiltered = filtered.indexOf(card);
+        if (indexInFiltered !== -1 && indexInFiltered < itemsToShow) {
+          card.style.display = "block";
+          setTimeout(() => {
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          }, 10);
+        } else {
+          card.style.opacity = "0";
+          card.style.transform = "translateY(30px)";
+          setTimeout(() => {
+            card.style.display = "none";
+          }, 500);
+        }
+      });
+
+      // 4. Botón cargar más
+      if (loadMore) {
+        loadMore.style.display =
+          filtered.length > itemsToShow ? "inline-flex" : "none";
+      }
     }
 
-    // Soporte para Astro View Transitions y carga normal
+    function init() {
+      const { buttons, loadMore } = getElements();
+
+      buttons.forEach((btn) => {
+        btn.onclick = () => {
+          activeFilter = btn.dataset.filter;
+          itemsToShow = INITIAL_VISIBLE;
+          updateUI();
+        };
+      });
+
+      if (loadMore) {
+        loadMore.onclick = () => {
+          itemsToShow += INITIAL_VISIBLE;
+          updateUI();
+        };
+      }
+      updateUI();
+    }
+
     document.addEventListener("astro:page-load", init);
-    window.addEventListener("load", init);
+    init();
   })();
 </script>

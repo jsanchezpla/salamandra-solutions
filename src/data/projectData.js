@@ -1,4 +1,3 @@
-import futurosTalentos from "../assets/img-projects/futurosTalentos.png";
 import talentia from "../assets/img-projects/talentia.png";
 import retorika from "../assets/img-projects/retorika.png";
 
@@ -7,7 +6,7 @@ export const proyectos = [
     titulo: "App web Futuros Talentos",
     descripcion:
       "App de registro de actividades e información de las mismas con autentificacion de usuarios, token de autentificación, PDFs personalizados, hojas de excel personalizadas y firmas de formularios.",
-    imagen: futurosTalentos.src,
+    imagen: talentia.src,
     tecnologias: ["React Native", "PostgreeSQL", "Express", "Node"],
     demo: "https://front-react-todo.onrender.com",
     codigo: "https://github.com/Lautaro-R-collins/Front-react-todo",
@@ -27,7 +26,7 @@ export const proyectos = [
     titulo: "Página web Futuros Talentos",
     descripcion:
       "Rediseño integral de la plataforma 'Futuros Talentos' potenciado por Elementor para ofrecer una estética vanguardista y profesional. El proyecto se centró en la modernización de la identidad visual y la implementación de una interfaz altamente intuitiva, optimizando tanto el impacto visual como la experiencia de usuario mediante soluciones técnicas modernas.",
-    imagen: futurosTalentos.src,
+    imagen: talentia.src,
     tecnologias: ["Elementor", "Wordpress"],
     demo: "https://traker-gastos-ingresos.onrender.com/",
     codigo: "https://github.com/Lautaro-R-collins/Traker-Gastos-Ingresos",
