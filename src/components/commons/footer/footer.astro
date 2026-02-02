@@ -4,82 +4,78 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class="relative border-t border-[#1F3B34]/5 bg-[#F5F5F2] py-10 text-[#1F3B34]"
+  class="relative border-t border-[#1F3B34]/5 bg-[#F5F5F2] pt-16 pb-8 text-[#1F3B34]"
 >
   <div
     class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-[#1F3B34]/10 to-transparent"
   >
   </div>
 
-  <div
-    class="container mx-auto flex flex-col md:flex-row justify-between items-start gap-12"
-  >
+  <div class="container mx-auto px-6">
     <div
-      class="flex flex-col items-center lg:items-start text-center lg:text-left"
+      class="flex flex-col md:flex-row justify-between items-center md:items-start gap-10 md:gap-12 pb-12"
     >
-      <a href="/" class="group block mb-6">
-        <h3
-          class="font-['Poppins'] text-2xl font-bold tracking-tighter text-[#1F3B34]"
-        >
-          SALAMANDRA <span class="font-light italic text-[#3E5C57]"
-            >Solutions</span
-          >
-        </h3>
-      </a>
-      <p
-        class="max-w-xs font-['Inter'] text-sm font-normal leading-relaxed text-[#3E5C57]/80"
+      <div
+        class="flex flex-col items-center md:items-start text-center md:text-left"
       >
-        Transformamos la complejidad técnica en experiencias digitales elegantes
-        y eficientes.
-      </p>
-    </div>
-
-    <div class="flex flex-col items-center lg:items-end space-y-4">
-      <div class="opacity-80 transition-opacity hover:opacity-100">
-        <SocialIcons client:visible />
-      </div>
-
-      <div class="flex flex-col items-center lg:items-end gap-2">
-        <span
-          class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest text-[#3E5C57]/50"
-        >
-          Hablemos
-        </span>
-        <a
-          href="mailto:info@salamandrasolutions.com"
-          class="group flex items-center gap-2 font-['Inter'] text-sm font-semibold text-[#1F3B34] transition-colors hover:text-[#3E5C57]"
-        >
-          info@salamandrasolutions.com
+        <a href="/" class="group block mb-4">
+          <h3
+            class="font-['Poppins'] text-2xl font-bold tracking-tighter text-[#1F3B34]"
+          >
+            SALAMANDRA <span class="font-light italic text-[#3E5C57]"
+              >Solutions</span
+            >
+          </h3>
         </a>
+        <p
+          class="max-w-xs font-['Inter'] text-sm font-normal leading-relaxed text-[#3E5C57]/80"
+        >
+          Transformamos la complejidad técnica en experiencias digitales
+          elegantes y eficientes desde Extremadura.
+        </p>
+      </div>
+
+      <div class="flex flex-col items-center md:items-end space-y-6">
+        <div class="opacity-90 hover:opacity-100 transition-opacity">
+          <SocialIcons client:visible />
+        </div>
+
+        <div class="flex flex-col items-center md:items-end gap-1">
+          <span
+            class="font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[#3E5C57]/40"
+          >
+            ¿Hablamos?
+          </span>
+          <a
+            href="mailto:info@salamandrasolutions.com"
+            class="font-['Inter'] text-sm font-semibold text-[#1F3B34] transition-colors hover:text-[#3E5C57] break-all"
+          >
+            info@salamandrasolutions.com
+          </a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container mx-auto px-6 lg:px-20">
-    <div
-      class="border-t border-[#1F3B34]/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-[#3E5C57]/40"
-    >
-      <p>
-        © {currentYear} Salamandra Solutions. Todos los derechos reservados.
-      </p>
+    <div class="border-t border-[#1F3B34]/5 pt-8">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <p
+          class="text-[10px] font-bold uppercase tracking-widest text-[#3E5C57]/40 text-center md:text-left"
+        >
+          © {currentYear} Salamandra Solutions. Todos los derechos reservados.
+        </p>
+
+        <p
+          class="text-[9px] font-bold uppercase tracking-widest text-[#3E5C57]/30"
+        >
+          Built with <span class="text-[#1F3B34]/20">♥</span> in Astro
+        </p>
+      </div>
     </div>
   </div>
 </footer>
 
 <style>
-  /* Clase refinada para los links del footer */
-  .nav-link-footer {
-    font-family: "Inter", sans-serif;
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: #3e5c57;
+  a {
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .nav-link-footer:hover {
-    color: #1f3b34;
-    padding-left: 6px; /* Efecto de desplazamiento elegante */
   }
 </style>

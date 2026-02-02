@@ -99,7 +99,6 @@ import { proyectos } from "../data/projectData.js";
       const { cards, buttons, loadMore } = getElements();
       const normalizedFilter = activeFilter.toLowerCase();
 
-      // 1. Estilo de botones
       buttons.forEach((btn) => {
         const isSelected = btn.dataset.filter === activeFilter;
         btn.classList.toggle("bg-[#1F3B34]", isSelected);
@@ -112,14 +111,12 @@ import { proyectos } from "../data/projectData.js";
         }
       });
 
-      // 2. Filtrado lógico
       const filtered = cards.filter(
         (card) =>
           activeFilter === "all" ||
           card.dataset.categoria?.toLowerCase() === normalizedFilter,
       );
 
-      // 3. Mostrar/Ocultar con animación
       cards.forEach((card) => {
         const indexInFiltered = filtered.indexOf(card);
         if (indexInFiltered !== -1 && indexInFiltered < itemsToShow) {
@@ -137,7 +134,6 @@ import { proyectos } from "../data/projectData.js";
         }
       });
 
-      // 4. Botón cargar más
       if (loadMore) {
         loadMore.style.display =
           filtered.length > itemsToShow ? "inline-flex" : "none";
@@ -157,7 +153,10 @@ import { proyectos } from "../data/projectData.js";
 
       if (loadMore) {
         loadMore.onclick = () => {
-          itemsToShow += INITIAL_VISIBLE;
+          // CAMBIO AQUÍ:
+          // En lugar de += INITIAL_VISIBLE, asignamos el total de tarjetas
+          const { cards } = getElements();
+          itemsToShow = cards.length;
           updateUI();
         };
       }
