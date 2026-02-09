@@ -6,7 +6,7 @@ export interface Props {
   descripcion: string;
   imagen: string;
   tecnologias: string[];
-  categoria?: string;
+  categoria?: string[];
   index: number;
 }
 
@@ -21,13 +21,13 @@ const { titulo, descripcion, imagen, tecnologias, categoria, index } =
 >
   <div class="flex flex-col md:flex-row items-center p-4 md:p-6 gap-8">
     <div
-      class="relative w-full md:w-72 h-48 shrink-0 overflow-hidden rounded-2xl bg-white shadow-sm"
+      class="relative w-full aspect-video md:w-72 h-65 shrink-0 overflow-hidden rounded-2xl bg-white shadow-sm"
     >
       <img
         src={imagen}
         alt={`Imagen del proyecto ${titulo}`}
         loading="lazy"
-        class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+        class="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110"
       />
       <div
         class="absolute inset-0 bg-[#1F3B34]/5 opacity-40 group-hover:opacity-0 transition-opacity"
@@ -40,7 +40,11 @@ const { titulo, descripcion, imagen, tecnologias, categoria, index } =
         <span
           class="font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[#3E5C57]/40 mb-1 block"
         >
-          {categoria || "Proyecto"}
+          {
+            Array.isArray(categoria) && categoria.length > 0
+              ? categoria.join("  •  ")
+              : categoria || "PROYECTO"
+          }
         </span>
         <h3
           class="font-['Poppins'] text-2xl font-bold text-[#1F3B34] leading-tight"

@@ -1,5 +1,6 @@
 ---
 import { targets } from "../../../data/tarjetsData";
+import { HiChevronDown } from "react-icons/hi2";
 ---
 
 <section
@@ -8,55 +9,160 @@ import { targets } from "../../../data/tarjetsData";
 >
     <div class="max-w-7xl mx-auto">
         <div
-            class="mb-20 text-center lg:text-left lg:flex lg:items-end lg:justify-between"
+            id="clientes-header"
+            class="mb-10 md:mb-20 cursor-pointer md:cursor-default group select-none md:select-auto"
         >
-            <div class="max-w-2xl">
-                <span
-                    class="font-['Inter'] text-xs font-bold uppercase tracking-[0.3em] text-[#3E5C57]"
-                >
-                    Perfil de Cliente
-                </span>
-                <h2
-                    class="mt-4 font-['Poppins'] text-4xl font-bold text-[#1F3B34] md:text-6xl tracking-tight"
-                >
-                    Soluciones para <span
-                        class="italic font-light text-[#3E5C57]"
-                        >negocios con visión.</span
+            <div
+                class="text-center lg:text-left lg:flex lg:items-end lg:justify-between"
+            >
+                <div class="max-w-2xl w-full">
+                    <span
+                        class="font-['Inter'] text-xs font-bold uppercase tracking-[0.3em] text-[#3E5C57]"
                     >
-                </h2>
+                        Perfil de Cliente
+                    </span>
+
+                    <div
+                        class="flex items-center justify-center lg:justify-start gap-4"
+                    >
+                        <h2
+                            class="mt-4 font-['Poppins'] text-4xl font-bold text-[#1F3B34] md:text-6xl tracking-tight"
+                        >
+                            Soluciones para <span
+                                class="italic font-light text-[#3E5C57]"
+                                >negocios con visión.</span
+                            >
+                        </h2>
+                    </div>
+                </div>
+
+                <p
+                    class="mt-6 lg:mt-0 font-['Inter'] text-[#3E5C57] max-w-sm lg:pb-2 text-lg leading-relaxed mx-auto lg:mx-0"
+                >
+                    Nos convertimos en el motor tecnológico de proyectos que
+                    buscan eficiencia, orden e impacto real.
+                </p>
+            </div>
+
+            <div
+                class="md:hidden mt-4 text-[#1F3B34] transition-transform duration-500 flex justify-center"
+                id="clientes-chevron"
+            >
+                <HiChevronDown size={32} />
             </div>
             <p
-                class="mt-6 lg:mt-0 font-['Inter'] text-[#3E5C57] max-w-sm lg:pb-2 text-lg leading-relaxed"
+                class="md:hidden text-center text-[10px] uppercase tracking-widest text-[#3E5C57]/50 mt-6 font-bold animate-pulse"
             >
-                Nos convertimos en el motor tecnológico de proyectos que buscan
-                eficiencia, orden e impacto real en su industria.
+                Toca para ver perfiles
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {
-                targets.map((item) => (
-                    <div class="group relative bg-white p-8 rounded-[2rem] border border-[#1F3B34]/5 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(31,59,52,0.05)] hover:-translate-y-2">
-                        <div class="flex justify-between items-start mb-8">
-                            <div class="text-[#1F3B34] opacity-80 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
-                                <item.icon size={32} stroke-width={1.5} />
+        <div
+            id="clientes-content"
+            class="grid grid-rows-[0fr] md:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+        >
+            <div class="overflow-hidden">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-4 md:pt-0 pb-4"
+                >
+                    {
+                        targets.map((item) => (
+                            <div class="group relative flex flex-col bg-white p-8 rounded-[2rem] border border-[#1F3B34]/5 transition-all duration-500 hover:shadow-[0_20px_40px_rgba(31,59,52,0.08)] hover:-translate-y-2 overflow-hidden">
+                                <div class="flex justify-between items-start mb-8">
+                                    <div class="text-[#1F3B34] opacity-80 transition-all duration-500 group-hover:scale-110 group-hover:opacity-100">
+                                        <item.icon
+                                            size={32}
+                                            stroke-width={1.5}
+                                        />
+                                    </div>
+                                    <span class="font-['Inter'] text-[9px] font-bold uppercase tracking-widest text-[#3E5C57]/40 bg-[#F5F5F2] px-2 py-1 rounded">
+                                        {item.tag}
+                                    </span>
+                                </div>
+
+                                <h3 class="font-['Poppins'] text-xl font-bold text-[#1F3B34] mb-4">
+                                    {item.title}
+                                </h3>
+                                <p class="font-['Inter'] text-sm leading-relaxed text-[#3E5C57] opacity-80 mb-2">
+                                    {item.description}
+                                </p>
+
+                                <div class="max-h-0 opacity-0 overflow-hidden transition-all duration-1000 ease-in-out group-hover:max-h-24 group-hover:opacity-100 group-hover:mt-6">
+                                    <div class="border-t border-[#1F3B34]/5 pt-4">
+                                        <span class="block font-['Inter'] text-[9px] font-bold uppercase tracking-widest text-[#3E5C57]/30 mb-3">
+                                            Confían en nosotros:
+                                        </span>
+                                        <div class="flex items-center gap-4">
+                                            {item.logos &&
+                                                item.logos.map((logo) => (
+                                                    <img
+                                                        src={logo.src}
+                                                        alt="Logo cliente"
+                                                        class="h-16 w-auto object-contain grayscale opacity-40 transition-all duration-300 hover:grayscale-0 hover:opacity-100"
+                                                    />
+                                                ))}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="absolute bottom-6 right-6 h-1.5 w-1.5 rounded-full bg-[#1F3B34]/10 transition-all duration-500 group-hover:opacity-0 group-hover:scale-0" />
                             </div>
-                            <span class="font-['Inter'] text-[9px] font-bold uppercase tracking-widest text-[#3E5C57]/40 bg-[#F5F5F2] px-2 py-1 rounded">
-                                {item.tag}
-                            </span>
-                        </div>
-
-                        <h3 class="font-['Poppins'] text-xl font-bold text-[#1F3B34] mb-4">
-                            {item.title}
-                        </h3>
-                        <p class="font-['Inter'] text-sm leading-relaxed text-[#3E5C57] opacity-80">
-                            {item.description}
-                        </p>
-
-                        <div class="absolute bottom-6 right-6 h-1.5 w-1.5 rounded-full bg-[#1F3B34]/10 transition-all duration-500 group-hover:scale-[3] group-hover:bg-[#1F3B34]/20" />
-                    </div>
-                ))
-            }
+                        ))
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<script>
+    function initClientesAccordion() {
+        const header = document.getElementById("clientes-header");
+        const content = document.getElementById("clientes-content");
+
+        if (!header || !content) return;
+
+        // 1. Clonar para limpiar listeners
+        const newHeader = header.cloneNode(true) as HTMLElement;
+        if (header.parentNode) {
+            header.parentNode.replaceChild(newHeader, header);
+        }
+
+        // 2. Obtener referencias FRESCAS del DOM
+        const activeHeader = document.getElementById("clientes-header");
+        // Buscamos el chevron DENTRO del nuevo header
+        const activeChevron = activeHeader?.querySelector("#clientes-chevron");
+
+        let isOpen = false;
+
+        activeHeader?.addEventListener("click", () => {
+            // Ignorar en escritorio
+            if (window.innerWidth >= 768) return;
+
+            isOpen = !isOpen;
+
+            if (isOpen) {
+                // ABRIR
+                content.classList.remove("grid-rows-[0fr]");
+                content.classList.add("grid-rows-[1fr]");
+                activeChevron?.classList.add("rotate-180");
+
+                // Ocultar texto de ayuda
+                const hint = activeHeader.querySelector(".animate-pulse");
+                if (hint) (hint as HTMLElement).style.opacity = "0";
+            } else {
+                // CERRAR
+                content.classList.remove("grid-rows-[1fr]");
+                content.classList.add("grid-rows-[0fr]");
+                activeChevron?.classList.remove("rotate-180");
+
+                // Mostrar texto de ayuda
+                const hint = activeHeader.querySelector(".animate-pulse");
+                if (hint) (hint as HTMLElement).style.opacity = "1";
+            }
+        });
+    }
+
+    document.addEventListener("astro:page-load", initClientesAccordion);
+    initClientesAccordion();
+</script>

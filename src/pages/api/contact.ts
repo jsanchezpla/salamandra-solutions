@@ -5,46 +5,62 @@ export const prerender = false;
 
 const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-export const POST: APIRoute = async ({ request, redirect }) => {
+export const POST: APIRoute = async ({ request }) => {
   const formData = await request.formData();
   
   const name = formData.get("name")?.toString();
   const email = formData.get("email")?.toString();
+  const phone = formData.get("phone")?.toString();
+  const company = formData.get("company")?.toString();
   const message = formData.get("message")?.toString();
-  const company = formData.get("company")?.toString(); // Honeypot
+  
+  // Campo trampa (Honeypot)
+  const botField = formData.get("bot_field")?.toString();
 
-  // 1. Validación Honeypot (Si un bot llena esto, paramos)
-  if (company) {
-    return redirect("/contact?sent=1");
+  // 1. Si el bot rellena el campo oculto, devolvemos éxito falso (para engañarlo) o error.
+  if (botField) {
+    return new Response(JSON.stringify({ message: "Bot detectado" }), { status: 400 });
   }
 
-  // 2. Validación de campos obligatorios
+  // 2. Validación
   if (!name || !email || !message) {
-    return redirect("/contact?error=1");
+    return new Response(
+      JSON.stringify({ message: "Faltan campos obligatorios" }), 
+      { status: 400 }
+    );
   }
 
   try {
-    // 3. Envío con Resend
     const { error } = await resend.emails.send({
       from: "Formulario Web <onboarding@resend.dev>",
       to: ["jsanchezpla@gmail.com"],
       replyTo: email,
-      subject: `Nuevo mensaje de ${name}`,
+      subject: `Lead Web: ${name} (${company || "Particular"})`,
       html: `
-        <p><strong>Nombre:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Mensaje:</strong> ${message}</p>
+        <h2>Nueva solicitud de contacto</h2>
+        <ul>
+            <li><strong>Nombre:</strong> ${name}</li>
+            <li><strong>Empresa:</strong> ${company || "No indicada"}</li>
+            <li><strong>Email:</strong> ${email}</li>
+            <li><strong>Teléfono:</strong> ${phone || "No indicado"}</li>
+        </ul>
+        <hr />
+        <h3>Mensaje:</h3>
+        <p>${message}</p>
       `,
     });
 
     if (error) {
-      console.error("Resend Error:", error);
-      return redirect("/contact?error=1");
+      return new Response(JSON.stringify({ message: error }), { status: 500 });
     }
 
-    return redirect("/contact?sent=1");
+    // ÉXITO: Devolvemos JSON
+    return new Response(
+      JSON.stringify({ message: "Email enviado correctamente" }), 
+      { status: 200 }
+    );
+
   } catch (e) {
-    console.error("Server Error:", e);
-    return redirect("/contact?error=1");
+    return new Response(JSON.stringify({ message: e }), { status: 500 });
   }
 };

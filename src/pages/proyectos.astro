@@ -41,6 +41,24 @@ import { proyectos } from "../data/projectData.js";
         >
           BACKEND
         </button>
+        <button
+          class="filter-btn px-8 py-2.5 font-['Inter'] text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 rounded-full border border-transparent text-[#3E5C57] hover:bg-[#F5F5F2]"
+          data-filter="web"
+        >
+          WEB
+        </button>
+        <button
+          class="filter-btn px-8 py-2.5 font-['Inter'] text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 rounded-full border border-transparent text-[#3E5C57] hover:bg-[#F5F5F2]"
+          data-filter="app"
+        >
+          APP
+        </button>
+        <button
+          class="filter-btn px-8 py-2.5 font-['Inter'] text-xs font-bold uppercase tracking-[0.2em] transition-all duration-500 rounded-full border border-transparent text-[#3E5C57] hover:bg-[#F5F5F2]"
+          data-filter="escritorio"
+        >
+          ESCRITORIO
+        </button>
       </div>
     </div>
 
@@ -99,6 +117,7 @@ import { proyectos } from "../data/projectData.js";
       const { cards, buttons, loadMore } = getElements();
       const normalizedFilter = activeFilter.toLowerCase();
 
+      // 1. Estilos de botones (Igual que antes)
       buttons.forEach((btn) => {
         const isSelected = btn.dataset.filter === activeFilter;
         btn.classList.toggle("bg-[#1F3B34]", isSelected);
@@ -111,12 +130,22 @@ import { proyectos } from "../data/projectData.js";
         }
       });
 
-      const filtered = cards.filter(
-        (card) =>
-          activeFilter === "all" ||
-          card.dataset.categoria?.toLowerCase() === normalizedFilter,
-      );
+      // 2. CAMBIO PRINCIPAL: Nueva lógica de filtrado para Arrays
+      const filtered = cards.filter((card) => {
+        // Si es "all", pasan todos
+        if (activeFilter === "all") return true;
 
+        // Obtenemos el string del dataset (ej: "web,frontend")
+        const categoriasStr = card.dataset.categoria || "";
+
+        // Lo convertimos en array y normalizamos a minúsculas para comparar
+        const categoriasArray = categoriasStr.toLowerCase().split(",");
+
+        // Comprobamos si el filtro seleccionado está DENTRO del array
+        return categoriasArray.includes(normalizedFilter);
+      });
+
+      // 3. Mostrar/Ocultar (Igual que antes)
       cards.forEach((card) => {
         const indexInFiltered = filtered.indexOf(card);
         if (indexInFiltered !== -1 && indexInFiltered < itemsToShow) {
@@ -134,7 +163,9 @@ import { proyectos } from "../data/projectData.js";
         }
       });
 
+      // 4. Botón Cargar Más (Lógica de cargar TODO corregida)
       if (loadMore) {
+        // Solo mostramos el botón si hay más cartas filtradas que las visibles actualmente
         loadMore.style.display =
           filtered.length > itemsToShow ? "inline-flex" : "none";
       }
@@ -146,15 +177,14 @@ import { proyectos } from "../data/projectData.js";
       buttons.forEach((btn) => {
         btn.onclick = () => {
           activeFilter = btn.dataset.filter;
-          itemsToShow = INITIAL_VISIBLE;
+          itemsToShow = INITIAL_VISIBLE; // Reseteamos al cambiar filtro
           updateUI();
         };
       });
 
       if (loadMore) {
         loadMore.onclick = () => {
-          // CAMBIO AQUÍ:
-          // En lugar de += INITIAL_VISIBLE, asignamos el total de tarjetas
+          // Cargamos TODOS los elementos disponibles
           const { cards } = getElements();
           itemsToShow = cards.length;
           updateUI();

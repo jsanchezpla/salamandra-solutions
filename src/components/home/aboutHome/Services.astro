@@ -1,68 +1,154 @@
 ---
 import { services } from "../../../data/servicesData";
+import { HiChevronDown } from "react-icons/hi2";
 ---
 
 <section id="services" class="bg-[#F5F5F2]/50 py-24 px-6">
     <div class="max-w-7xl mx-auto">
         <div
-            class="mb-20 text-center lg:text-left lg:flex lg:items-end lg:justify-between"
+            id="services-header"
+            class="mb-10 md:mb-20 cursor-pointer md:cursor-default group select-none md:select-auto"
         >
-            <div class="max-w-2xl">
-                <span
-                    class="font-['Inter'] text-xs font-bold uppercase tracking-[0.3em] text-[#3E5C57]"
+            <div class="flex items-end justify-between">
+                <div
+                    class="w-full text-center lg:text-left lg:flex lg:items-end lg:justify-between"
                 >
-                    Nuestras Soluciones
-                </span>
-                <h2
-                    class="mt-4 font-['Poppins'] text-4xl font-bold text-[#1F3B34] md:text-6xl tracking-tight"
-                >
-                    Especialistas en <span class="italic font-light"
-                        >complejidad digital.</span
+                    <div class="max-w-2xl relative">
+                        <span
+                            class="font-['Inter'] text-xs font-bold uppercase tracking-[0.3em] text-[#3E5C57]"
+                        >
+                            Nuestras Soluciones
+                        </span>
+                        <div
+                            class="flex items-center justify-center lg:justify-start gap-4"
+                        >
+                            <h2
+                                class="mt-4 font-['Poppins'] text-4xl font-bold text-[#1F3B34] md:text-6xl tracking-tight"
+                            >
+                                Especialistas en <span class="italic font-light"
+                                    >complejidad digital.</span
+                                >
+                            </h2>
+                        </div>
+                    </div>
+
+                    <p
+                        class="mt-6 lg:mt-0 font-['Inter'] text-[#3E5C57] max-w-sm lg:pb-2 mx-auto lg:mx-0"
                     >
-                </h2>
+                        No vendemos horas de programación: entregamos soluciones
+                        que simplifican y agilizan tu negocio.
+                    </p>
+                </div>
+            </div>
+
+            <div
+                class="md:hidden mt-4 text-[#1F3B34] transition-transform duration-500 flex justify-center"
+                id="services-chevron"
+            >
+                <HiChevronDown size={32} />
             </div>
             <p
-                class="mt-6 lg:mt-0 font-['Inter'] text-[#3E5C57] max-w-sm lg:pb-2"
+                class="md:hidden text-center text-[10px] uppercase tracking-widest text-[#3E5C57]/50 mt-4 font-bold animate-pulse"
             >
-                No vendemos horas de programación; entregamos soluciones que
-                eliminan fricciones en tu negocio.
+                Toca para ver servicios
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {
-                services.map((s) => (
-                    <div class="group relative flex flex-col bg-white p-10 rounded-[2rem] border border-[#1F3B34]/5 transition-all duration-500 hover:shadow-[0_30px_60px_rgba(31,59,52,0.05)] hover:-translate-y-2">
-                        <div class="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F5F5F2] text-[#1F3B34] transition-colors duration-500 group-hover:bg-[#1F3B34] group-hover:text-white">
-                            <s.icon size={28} />
-                        </div>
+        <div
+            id="services-content"
+            class="grid grid-rows-[0fr] md:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+        >
+            <div class="overflow-hidden">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 md:pt-0 pb-4"
+                >
+                    {
+                        services.map((s) => (
+                            <div class="group relative flex flex-col bg-white p-10 rounded-[2rem] border border-[#1F3B34]/5 transition-all duration-500 hover:shadow-[0_30px_60px_rgba(31,59,52,0.05)] hover:-translate-y-2">
+                                <div class="mb-8 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F5F5F2] text-[#1F3B34] transition-colors duration-500 group-hover:bg-[#1F3B34] group-hover:text-white">
+                                    <s.icon size={28} />
+                                </div>
 
-                        <h3 class="font-['Poppins'] text-xl font-bold text-[#1F3B34] mb-6">
-                            {s.title}
-                        </h3>
+                                <h3 class="font-['Poppins'] text-xl font-bold text-[#1F3B34] mb-6 min-h-[3.5rem] flex items-center">
+                                    {s.title}
+                                </h3>
 
-                        <div class="space-y-4">
-                            <div>
-                                <span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest text-[#3E5C57]/40 block mb-1">
-                                    El Problema
-                                </span>
-                                <p class="font-['Inter'] text-sm text-[#3E5C57]">
-                                    {s.problem}
-                                </p>
+                                <div class="space-y-4">
+                                    <div>
+                                        <span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest text-[#3E5C57]/40 block mb-1">
+                                            El Problema
+                                        </span>
+                                        <p class="font-['Inter'] text-sm text-[#3E5C57]">
+                                            {s.problem}
+                                        </p>
+                                    </div>
+
+                                    <div>
+                                        <span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest text-[#3E5C57]/40 block mb-1">
+                                            Ideal para
+                                        </span>
+                                        <p class="font-['Inter'] text-sm font-semibold text-[#1F3B34]">
+                                            {s.target}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-
-                            <div>
-                                <span class="font-['Inter'] text-[10px] font-bold uppercase tracking-widest text-[#3E5C57]/40 block mb-1">
-                                    Ideal para
-                                </span>
-                                <p class="font-['Inter'] text-sm font-semibold text-[#1F3B34]">
-                                    {s.target}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                ))
-            }
+                        ))
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<script>
+    function initServicesAccordion() {
+        const header = document.getElementById("services-header");
+        const content = document.getElementById("services-content");
+        // No buscamos el chevron aquí todavía para evitar errores tras el clone
+
+        if (!header || !content) return;
+
+        // Limpiamos eventos anteriores clonando el nodo
+        const newHeader = header.cloneNode(true) as HTMLElement;
+        if (header.parentNode) {
+            header.parentNode.replaceChild(newHeader, header);
+        }
+
+        // Recuperamos referencias tras el clone (AHORA ES SEGURO)
+        const activeHeader = document.getElementById("services-header");
+        // Buscamos el chevron DENTRO del header activo
+        const activeChevron = activeHeader?.querySelector("#services-chevron");
+
+        // Estado inicial
+        let isOpen = false;
+
+        activeHeader?.addEventListener("click", () => {
+            // Si estamos en escritorio (>768px), no hacemos nada
+            if (window.innerWidth >= 768) return;
+
+            isOpen = !isOpen;
+
+            if (isOpen) {
+                // ABRIR
+                content.classList.remove("grid-rows-[0fr]");
+                content.classList.add("grid-rows-[1fr]");
+                activeChevron?.classList.add("rotate-180"); // Usamos activeChevron
+
+                const hint = activeHeader.querySelector(".animate-pulse");
+                if (hint) (hint as HTMLElement).style.opacity = "0";
+            } else {
+                // CERRAR
+                content.classList.remove("grid-rows-[1fr]");
+                content.classList.add("grid-rows-[0fr]");
+                activeChevron?.classList.remove("rotate-180"); // Usamos activeChevron
+
+                const hint = activeHeader.querySelector(".animate-pulse");
+                if (hint) (hint as HTMLElement).style.opacity = "1";
+            }
+        });
+    }
+
+    document.addEventListener("astro:page-load", initServicesAccordion);
+    initServicesAccordion();
+</script>

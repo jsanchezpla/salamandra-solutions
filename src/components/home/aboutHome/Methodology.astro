@@ -1,60 +1,148 @@
 ---
 import { steps } from "../../../data/stepsData";
+import { HiChevronDown } from "react-icons/hi2";
 ---
 
 <section id="metodologia" class="bg-white py-24 px-6">
     <div class="max-w-7xl mx-auto">
         <div
-            class="mb-20 text-center lg:text-left lg:flex lg:items-end lg:justify-between"
+            id="metodologia-header"
+            class="mb-10 md:mb-20 cursor-pointer md:cursor-default group select-none md:select-auto"
         >
-            <div class="max-w-2xl">
-                <span
-                    class="font-['Inter'] text-xs font-bold uppercase tracking-[0.3em] text-[#3E5C57]"
-                >
-                    Nuestro Proceso
-                </span>
-                <h2
-                    class="mt-4 font-['Poppins'] text-4xl font-bold text-[#1F3B34] md:text-6xl tracking-tight"
-                >
-                    Metodología de <span
-                        class="italic font-light text-[#3E5C57]">trabajo.</span
+            <div
+                class="text-center lg:text-left lg:flex lg:items-end lg:justify-between"
+            >
+                <div class="max-w-2xl w-full">
+                    <span
+                        class="font-['Inter'] text-xs font-bold uppercase tracking-[0.3em] text-[#3E5C57]"
                     >
-                </h2>
+                        Nuestro Proceso
+                    </span>
+
+                    <div
+                        class="flex items-center justify-center lg:justify-start gap-4"
+                    >
+                        <h2
+                            class="mt-4 font-['Poppins'] text-4xl font-bold text-[#1F3B34] md:text-6xl tracking-tight"
+                        >
+                            Metodología de <span
+                                class="italic font-light text-[#3E5C57]"
+                                >trabajo.</span
+                            >
+                        </h2>
+                    </div>
+                </div>
+
+                <p
+                    class="mt-6 lg:mt-0 font-['Inter'] text-[#3E5C57] max-w-sm lg:pb-2 text-lg leading-relaxed mx-auto lg:mx-0"
+                >
+                    Un camino estructurado para convertir objetivos complejos en
+                    resultados medibles y escalables.
+                </p>
+            </div>
+
+            <div
+                class="md:hidden mt-4 text-[#1F3B34] transition-transform duration-500 flex justify-center"
+                id="metodologia-chevron"
+            >
+                <HiChevronDown size={32} />
             </div>
             <p
-                class="mt-6 lg:mt-0 font-['Inter'] text-[#3E5C57] max-w-sm lg:pb-2 text-lg leading-relaxed"
+                class="md:hidden text-center text-[10px] uppercase tracking-widest text-[#3E5C57]/50 mt-6 font-bold animate-pulse"
             >
-                Un camino estructurado para convertir objetivos complejos en
-                resultados medibles y escalables.
+                Toca para ver los pasos
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {
-                steps.map((step, index) => (
-                    <div class="group relative flex flex-col bg-[#1F3B34] p-10 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(31,59,52,0.2)]">
-                        <span class="absolute top-8 right-10 font-['Poppins'] text-5xl font-bold text-white/5 group-hover:text-white/10 transition-colors">
-                            0{index + 1}
-                        </span>
+        <div
+            id="metodologia-content"
+            class="grid grid-rows-[0fr] md:grid-rows-[1fr] transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.4,0,0.2,1)]"
+        >
+            <div class="overflow-hidden">
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-4 md:pt-0 pb-4"
+                >
+                    {
+                        steps.map((step, index) => (
+                            <div class="group relative flex flex-col bg-[#1F3B34] p-10 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_30px_60px_rgba(31,59,52,0.2)]">
+                                <span class="absolute top-8 right-10 font-['Poppins'] text-5xl font-bold text-white/5 group-hover:text-white/10 transition-colors">
+                                    0{index + 1}
+                                </span>
 
-                        <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#3E5C57] text-[#F5F5F2] mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:bg-[#F5F5F2] group-hover:text-[#1F3B34]">
-                            <step.icon size={28} stroke-width={1.5} />
-                        </div>
+                                <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#3E5C57] text-[#F5F5F2] mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:bg-[#F5F5F2] group-hover:text-[#1F3B34]">
+                                    <step.icon size={28} stroke-width={1.5} />
+                                </div>
 
-                        <h3 class="font-['Poppins'] text-2xl font-bold text-white mb-4">
-                            {step.title}
-                        </h3>
+                                <h3 class="font-['Poppins'] text-2xl font-bold text-white mb-4">
+                                    {step.title}
+                                </h3>
 
-                        <p class="font-['Inter'] text-sm leading-relaxed text-[#F5F5F2]/70 group-hover:text-[#F5F5F2] transition-colors">
-                            {step.description}
-                        </p>
+                                <p class="font-['Inter'] text-sm leading-relaxed text-[#F5F5F2]/70 group-hover:text-[#F5F5F2] transition-colors">
+                                    {step.description}
+                                </p>
 
-                        <div class="mt-auto pt-8">
-                            <div class="h-[1px] w-12 bg-white/10 transition-all duration-500 group-hover:w-full group-hover:bg-white/20" />
-                        </div>
-                    </div>
-                ))
-            }
+                                <div class="mt-auto pt-8">
+                                    <div class="h-[1px] w-12 bg-white/10 transition-all duration-500 group-hover:w-full group-hover:bg-white/20" />
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+<script>
+    function initMetodologiaAccordion() {
+        const header = document.getElementById("metodologia-header");
+        const content = document.getElementById("metodologia-content");
+
+        if (!header || !content) return;
+
+        // Limpiar eventos anteriores clonando el nodo
+        const newHeader = header.cloneNode(true) as HTMLElement;
+        if (header.parentNode) {
+            header.parentNode.replaceChild(newHeader, header);
+        }
+
+        // Recuperar referencias frescas
+        const activeHeader = document.getElementById("metodologia-header");
+        // CORRECCIÓN 2: Buscar el chevron dentro del header ACTIVO
+        const activeChevron = activeHeader?.querySelector(
+            "#metodologia-chevron",
+        );
+
+        let isOpen = false;
+
+        activeHeader?.addEventListener("click", () => {
+            // Ignorar clic en escritorio
+            if (window.innerWidth >= 768) return;
+
+            isOpen = !isOpen;
+
+            if (isOpen) {
+                // ABRIR
+                content.classList.remove("grid-rows-[0fr]");
+                content.classList.add("grid-rows-[1fr]");
+                activeChevron?.classList.add("rotate-180");
+
+                // Ocultar texto de ayuda
+                const hint = activeHeader.querySelector(".animate-pulse");
+                if (hint) (hint as HTMLElement).style.opacity = "0";
+            } else {
+                // CERRAR
+                content.classList.remove("grid-rows-[1fr]");
+                content.classList.add("grid-rows-[0fr]");
+                activeChevron?.classList.remove("rotate-180");
+
+                // Mostrar texto de ayuda
+                const hint = activeHeader.querySelector(".animate-pulse");
+                if (hint) (hint as HTMLElement).style.opacity = "1";
+            }
+        });
+    }
+
+    document.addEventListener("astro:page-load", initMetodologiaAccordion);
+    initMetodologiaAccordion();
+</script>

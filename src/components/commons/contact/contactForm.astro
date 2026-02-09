@@ -3,12 +3,12 @@ const {
     title = "Iniciemos un proyecto",
     subtitle = "Cuéntanos tu idea y nos pondremos en contacto contigo para trazar la mejor estrategia técnica.",
 } = Astro.props;
-
-const success = Astro.url.searchParams.get("sent") === "1";
-const error = Astro.url.searchParams.get("error") === "1";
 ---
 
-<div id="contact-form" class="w-full max-w-5xl mx-auto px-4 py-12 md:py-24">
+<div
+    id="contact-form-container"
+    class="w-full max-w-5xl mx-auto px-4 py-12 md:py-24"
+>
     <div
         class="relative overflow-hidden rounded-[2rem] border border-[#1F3B34]/5 bg-[#1F3B34] p-8 shadow-[0_30px_60px_rgba(31,59,52,0.05)] md:p-12"
     >
@@ -25,35 +25,45 @@ const error = Astro.url.searchParams.get("error") === "1";
             </p>
         </header>
 
-        {
-            success && (
-                <div class="mb-8 rounded-xl border border-emerald-600/20 bg-emerald-50 px-5 py-4 font-['Inter'] text-sm font-medium text-emerald-800">
-                    <span class="mr-2 font-bold">✓</span> ¡Mensaje enviado! Te
-                    responderemos muy pronto.
-                </div>
-            )
-        }
-
-        {
-            error && (
-                <div class="mb-8 rounded-xl border border-red-600/20 bg-red-50 px-5 py-4 font-['Inter'] text-sm font-medium text-red-800">
-                    <span class="mr-2 font-bold">✕</span> Hubo un error al
-                    enviar. Por favor, inténtalo de nuevo.
-                </div>
-            )
-        }
-
-        <form
-            id="contact-form"
-            action="/api/contact"
-            method="POST"
-            class="space-y-6"
+        <div
+            id="success-message"
+            class="hidden mb-8 rounded-xl border border-emerald-500/30 bg-emerald-500/10 px-6 py-8 text-center"
         >
-            <div class="hidden">
-                <label>
-                    No rellenar
-                    <input name="company" tabindex="-1" autocomplete="off" />
-                </label>
+            <div class="flex justify-center mb-4">
+                <div
+                    class="h-12 w-12 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-2xl"
+                >
+                    ✓
+                </div>
+            </div>
+            <h3
+                class="font-['Poppins'] text-xl font-bold text-emerald-400 mb-2"
+            >
+                ¡Mensaje recibido!
+            </h3>
+            <p class="font-['Inter'] text-emerald-200/80">
+                Gracias por contactarnos. Analizaremos tu propuesta y te
+                responderemos lo antes posible.
+            </p>
+            <button
+                id="reset-btn"
+                class="mt-6 text-sm font-bold text-emerald-400 underline decoration-2 underline-offset-4 hover:text-emerald-300"
+            >
+                Enviar otro mensaje
+            </button>
+        </div>
+
+        <div
+            id="error-message"
+            class="hidden mb-8 rounded-xl border border-red-500/30 bg-red-500/10 px-5 py-4 font-['Inter'] text-sm font-medium text-red-400"
+        >
+            <span class="mr-2 font-bold">✕</span> Hubo un problema técnico. Por favor,
+            intenta escribirnos directamente a info@salamandrasolutions.com
+        </div>
+
+        <form id="ajax-form" class="space-y-6 transition-opacity duration-500">
+            <div class="hidden" aria-hidden="true">
+                <input name="bot_field" tabindex="-1" autocomplete="off" />
             </div>
 
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -61,33 +71,28 @@ const error = Astro.url.searchParams.get("error") === "1";
                     <label
                         for="name"
                         class="mb-2 block font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[white]"
+                        >Tu nombre</label
                     >
-                        Tu nombre
-                    </label>
                     <input
                         id="name"
                         name="name"
                         type="text"
                         required
-                        autocomplete="name"
                         placeholder="Nombre y apellidos"
                         class="w-full rounded-xl border border-[#1F3B34]/10 bg-white px-5 py-4 font-['Inter'] text-sm text-[#1F3B34] placeholder:text-[#1F3B34]/50 focus:border-[#1F3B34] focus:outline-none focus:ring-1 focus:ring-[#1F3B34] transition-all duration-300 shadow-sm"
                     />
                 </div>
-
                 <div>
                     <label
                         for="company"
                         class="mb-2 block font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[white]"
+                        >Tu empresa</label
                     >
-                        Tu empresa
-                    </label>
                     <input
                         id="company"
                         name="company"
                         type="text"
                         required
-                        autocomplete="company"
                         placeholder="Nombre de tu empresa"
                         class="w-full rounded-xl border border-[#1F3B34]/10 bg-white px-5 py-4 font-['Inter'] text-sm text-[#1F3B34] placeholder:text-[#1F3B34]/50 focus:border-[#1F3B34] focus:outline-none focus:ring-1 focus:ring-[#1F3B34] transition-all duration-300 shadow-sm"
                     />
@@ -99,15 +104,13 @@ const error = Astro.url.searchParams.get("error") === "1";
                     <label
                         for="email"
                         class="mb-2 block font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[white]"
+                        >Email</label
                     >
-                        Correo electrónico
-                    </label>
                     <input
                         id="email"
                         name="email"
                         type="email"
                         required
-                        autocomplete="email"
                         placeholder="correo@ejemplo.com"
                         class="w-full rounded-xl border border-[#1F3B34]/10 bg-white px-5 py-4 font-['Inter'] text-sm text-[#1F3B34] placeholder:text-[#1F3B34]/50 focus:border-[#1F3B34] focus:outline-none focus:ring-1 focus:ring-[#1F3B34] transition-all duration-300 shadow-sm"
                     />
@@ -116,16 +119,14 @@ const error = Astro.url.searchParams.get("error") === "1";
                     <label
                         for="phone"
                         class="mb-2 block font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[white]"
+                        >Teléfono</label
                     >
-                        Teléfono
-                    </label>
                     <input
                         id="phone"
                         name="phone"
                         type="text"
                         required
-                        autocomplete="phone"
-                        placeholder="Tu teléfono de contacto"
+                        placeholder="Tu teléfono"
                         class="w-full rounded-xl border border-[#1F3B34]/10 bg-white px-5 py-4 font-['Inter'] text-sm text-[#1F3B34] placeholder:text-[#1F3B34]/50 focus:border-[#1F3B34] focus:outline-none focus:ring-1 focus:ring-[#1F3B34] transition-all duration-300 shadow-sm"
                     />
                 </div>
@@ -135,15 +136,14 @@ const error = Astro.url.searchParams.get("error") === "1";
                 <label
                     for="message"
                     class="mb-2 block font-['Inter'] text-[10px] font-bold uppercase tracking-[0.2em] text-[white]"
+                    >Cuéntanos tu idea</label
                 >
-                    Cuéntanos tu idea
-                </label>
                 <textarea
                     id="message"
                     name="message"
                     required
                     rows="4"
-                    placeholder="Describe brevemente tu proyecto y objetivos..."
+                    placeholder="Describe brevemente tu proyecto..."
                     class="w-full resize-none rounded-xl border border-[#1F3B34]/10 bg-white px-5 py-4 font-['Inter'] text-sm text-[#1F3B34] placeholder:text-[#1F3B34]/50 focus:border-[#1F3B34] focus:outline-none focus:ring-1 focus:ring-[#1F3B34] transition-all duration-300 shadow-sm"
                 ></textarea>
             </div>
@@ -154,7 +154,7 @@ const error = Astro.url.searchParams.get("error") === "1";
                 <button
                     id="submit-btn"
                     type="submit"
-                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[white] px-10 py-4 font-['Poppins'] text-sm font-bold text-#1F3B34 transition-all duration-300 hover:bg-[white] hover:shadow-xl hover:shadow-[#1F3B34]/20 active:scale-95 disabled:opacity-50"
+                    class="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-[white] px-10 py-4 font-['Poppins'] text-sm font-bold text-#1F3B34 transition-all duration-300 hover:bg-[white] hover:shadow-xl hover:shadow-[#1F3B34]/20 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     <span id="btn-text" class="relative z-10 tracking-[0.1em]"
                         >ENVIAR SOLICITUD</span
@@ -170,15 +170,67 @@ const error = Astro.url.searchParams.get("error") === "1";
 </div>
 
 <script>
-    const form = document.getElementById("contact-form") as HTMLFormElement;
-    const btn = document.getElementById("submit-btn") as HTMLButtonElement;
-    const btnText = document.getElementById("btn-text");
+    function setupContactForm() {
+        const form = document.getElementById("ajax-form") as HTMLFormElement;
+        const successMsg = document.getElementById("success-message");
+        const errorMsg = document.getElementById("error-message");
+        const btn = document.getElementById("submit-btn") as HTMLButtonElement;
+        const btnText = document.getElementById("btn-text");
+        const resetBtn = document.getElementById("reset-btn");
 
-    if (form && btn && btnText) {
-        form.addEventListener("submit", () => {
+        if (!form || !successMsg || !errorMsg || !btn || !btnText) return;
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault(); // EVITA LA RECARGA DE PÁGINA
+
+            // UI Loading
             btn.disabled = true;
-            btnText.innerText = "ENVIANDO SOLICITUD...";
-            btn.classList.add("cursor-wait");
+            btnText.innerText = "ENVIANDO...";
+            btn.classList.add("opacity-80");
+            errorMsg.classList.add("hidden"); // Ocultar error previo si lo hubo
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch("/api/contact", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // ÉXITO: Ocultamos form, mostramos mensaje
+                    form.classList.add("hidden");
+                    successMsg.classList.remove("hidden");
+                    form.reset();
+                } else {
+                    // ERROR DE API
+                    throw new Error(data.message || "Error desconocido");
+                }
+            } catch (error) {
+                // ERROR DE RED O SERVIDOR
+                console.error(error);
+                errorMsg.classList.remove("hidden");
+                btn.disabled = false;
+                btnText.innerText = "REINTENTAR";
+                btn.classList.remove("opacity-80");
+            }
         });
+
+        // Botón para enviar otro mensaje (opcional)
+        if (resetBtn) {
+            resetBtn.addEventListener("click", () => {
+                successMsg.classList.add("hidden");
+                form.classList.remove("hidden");
+                btn.disabled = false;
+                btnText.innerText = "ENVIAR SOLICITUD";
+                btn.classList.remove("opacity-80");
+            });
+        }
     }
+
+    // Compatible con Astro View Transitions
+    document.addEventListener("astro:page-load", setupContactForm);
+    setupContactForm();
 </script>
