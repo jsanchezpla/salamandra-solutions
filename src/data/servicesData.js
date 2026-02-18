@@ -9,7 +9,7 @@ import {
 
 export const services = [
     {
-        title: "Plataformas Web de Alto Rendimiento",
+        title: "Plataformas Web",
         problem: "Tu web actual es lenta, no convierte o se siente genérica.",
         target: "Empresas que buscan una presencia digital única y optimizada para ventas.",
         icon: HiOutlineGlobeAlt,
@@ -29,7 +29,7 @@ export const services = [
         icon: HiOutlineCircleStack,
     },
     {
-        title: "Ecosistemas Educativos (E-learning)",
+        title: "Ecosistemas Educativos",
         problem: "Dificultad para monetizar conocimiento de forma escalable.",
         target: "Mentores, academias y empresas que desean digitalizar su formación.",
         icon: HiOutlineAcademicCap,

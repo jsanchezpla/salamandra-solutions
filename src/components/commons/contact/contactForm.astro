@@ -192,7 +192,7 @@ const {
             const formData = new FormData(form);
 
             try {
-                const response = await fetch("/api/contact", {
+                const response = await fetch("/send-mail.php", {
                     method: "POST",
                     body: formData,
                 });

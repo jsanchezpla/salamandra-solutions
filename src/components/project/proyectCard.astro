@@ -77,14 +77,14 @@ const { titulo, descripcion, imagen, tecnologias, categoria, index } =
   </div>
 
   <div
-    class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-#F5F5F2"
+    class="accordion-content max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-[#F5F5F2]"
   >
     <div class="p-8 md:ml-80 border-t border-[#1F3B34]/5">
-      <p
-        class="font-['Inter'] text-base leading-relaxed text-[#3E5C57] max-w-3xl"
-      >
-        {descripcion}
-      </p>
+      <div
+        class="font-['Inter'] text-base leading-relaxed text-[#3E5C57] max-w-3xl text-justify
+               [&>p]:mb-4 [&>ul]:list-disc [&>ul]:pl-5 [&>ul]:mb-6 [&>ul>li]:mb-2"
+        set:html={descripcion}
+      />
     </div>
   </div>
 </article>

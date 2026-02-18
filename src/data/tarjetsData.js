@@ -17,7 +17,7 @@ import sanchezlazaro from "../assets/img-projects/sanchezlazaro.png";
 
 export const targets = [
   {
-    title: "Empresas de Servicios",
+    title: "Agencias y empresas",
     description: "Optimizamos la captación y gestión de clientes mediante plataformas robustas y flujos de trabajo automatizados.",
     icon: HiOutlineBuildingOffice2,
     tag: "Eficiencia",
@@ -50,8 +50,8 @@ export const targets = [
     ]
   },
   {
-    title: "Diseño & Renovación Web",
-    description: "Transformamos webs obsoletas en experiencias digitales modernas, rápidas y alineadas con la identidad actual de tu marca.",
+    title: "Diseño Web",
+    description: "Transformamos webs obsoletas en experiencias digitales modernas, rápidas y alineadas con tu marca.",
     icon: HiOutlineSparkles,
     tag: "Vanguardia",
     logos: [
