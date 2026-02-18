@@ -1,64 +1,80 @@
-# 🌌 Personal Portfolio – Lautaro 
-
----
-
-## 🚀 Características principales
-
-- ⚡️ Construido con **Astro** y **React** 
-- 🎨 **Diseño responsive**
-- 🧠 **Filtrado dinámico de proyectos**
-- 💬 Secciones personalizables: *Sobre mí*, *Proyectos*, *Experiencia*, *Contacto*  
-
----
-
-## 🧩 Tecnologías utilizadas
-
-- [Astro](https://astro.build/)  
-- [TailwindCSS](https://tailwindcss.com/)  
-- [TypeScript / JavaScript]  
-- [React (en componentes selectivos)]  
-- [Vite](https://vitejs.dev/)  
-
----
-
-## 📂 Estructura del proyecto
 
 
 
-## 🚀 Project Structure
+# Web Salamandra Solutions
 
-Inside of your Astro project, you'll see the following folders and files:
+Este repositorio contiene el sitio web de Salamandra Solutions construido con Astro. Incluye páginas, componentes y datos para mostrar proyectos, servicios y experiencia.
 
-```text
-/
-├── public/
-│ └── images/ # Recursos estáticos
-├── src/
-│ ├── components/ # Componentes reutilizables
-│ ├── layouts/ # Layout base
-│ ├── pages/ # Páginas principales (index, proyectos, etc.)
-│ ├── scripts/ # JS para interactividad (filtro, animaciones)
-│ ├── styles/ # CSS global o módulos
-│ └── data/ # Datos (proyectos, experiencia)
-└── astro.config.mjs
+## Tecnologías
+
+- Astro
+- JavaScript / JSX
+- HTML & CSS
+
+## Estructura del proyecto (resumen)
+
+- `src/pages` — rutas y páginas del sitio (index, about, contact, proyectos)
+- `src/components` — componentes reutilizables organizados por secciones
+- `src/assets` — imágenes y activos estáticos
+- `src/data` — datos usados para proyectos, servicios y experiencia
+- `public` — iconos y SVG públicos
+- `astro.config.mjs`, `package.json`, `tsconfig.json` — configuración del proyecto
+
+## Configuración y ejecución local
+
+Requisitos: Node.js (v16+ recomendado) y npm.
+
+Instalar dependencias:
+
+```bash
+npm install
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+Ejecutar en modo desarrollo (servidor local con recarga en caliente):
 
-## 🧞 Commands
+```bash
+npm run dev
+```
 
-All commands are run from the root of the project, from a terminal:
+Generar build de producción:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+```bash
+npm run build
+```
 
----
-![Portfolio](https://github.com/user-attachments/assets/8c01d06f-2d36-46c1-a3ff-a6f7bf73ab67)
+Previsualizar el resultado de producción:
+
+```bash
+npm run preview
+```
+
+## Despliegue
+
+El sitio es estático y puede desplegarse en plataformas como Vercel, Netlify o cualquier hosting estático. Subir la carpeta `dist/` generada por `npm run build`.
+
+## Personalizar contenido
+
+- Proyectos y datos: editar los archivos en `src/data` (por ejemplo `projectData.js`).
+- Páginas y componentes: editar los archivos en `src/pages` y `src/components`.
+- Estilos: `src/styles` contiene CSS global y por secciones.
+
+Archivos clave:
+
+- [src/pages/index.astro](src/pages/index.astro) — página principal
+- [src/pages/about.astro](src/pages/about.astro) — página "Sobre mí"
+- [src/pages/contact.astro](src/pages/contact.astro) — formulario de contacto
+
+## Contribuciones
+
+Si quieres mejorar el portafolio, abre un issue o un pull request. Para cambios mayores, crea una rama nueva y realiza un PR describiendo tus cambios.
+
+## Licencia
+
+Este proyecto utiliza una licencia MIT por defecto. Cambia la licencia según necesites.
+
+## Contacto
+
+Para consultas o cambios, usa la página de contacto del sitio o contacta al autor desde los datos públicos en el portafolio.
+
 
 
